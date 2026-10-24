@@ -6,7 +6,7 @@ extends Node
 @onready var main_step_5 := $MainMusic/MainStep5
 @onready var menu_music := $Menu
 
-var step_intro_time := 5
+var step_intro_time := 4
 var music_steps := []
 
 enum song_type {
@@ -94,7 +94,7 @@ func start_one(audio : AudioStreamPlayer, time=4):
 	else:
 		var timer = get_tree().create_timer(time)
 		await timer.timeout
-		await wait_for_song_time(main_step_1, time)
+		await wait_for_song_time(main_step_1, step_intro_time)
 		await turn_on_music(audio, main_step_1.get_playback_position())
 		# print("Started: " + str(audio))
 	return 0
