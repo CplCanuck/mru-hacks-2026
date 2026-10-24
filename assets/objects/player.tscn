@@ -9,10 +9,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_bi8p6"]
 radius = 70.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6r1sy"]
-atlas = ExtResource("3_6r1sy")
-region = Rect2(128, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_nqkij"]
 atlas = ExtResource("3_6r1sy")
 region = Rect2(0, 0, 32, 32)
@@ -36,9 +32,6 @@ region = Rect2(128, 0, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_bi8p6"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6r1sy")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nqkij")
 }, {
@@ -160,11 +153,11 @@ one_shot = true
 [node name="Attack Pivot" type="Marker2D" parent="." unique_id=1688328193]
 
 [node name="Bark Animation" type="AnimatedSprite2D" parent="Attack Pivot" unique_id=1659706803]
+visible = false
 position = Vector2(160, 0)
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_bi8p6")
 animation = &"bark"
-frame_progress = 0.9125994
 
 [node name="Attackbox" type="Area2D" parent="Attack Pivot" unique_id=342060343]
 collision_layer = 4

@@ -45,6 +45,7 @@ func handle_attack_click():
 		attack_pivot.rotation = global_position.direction_to(get_global_mouse_position()).angle()
 		
 		# trigger attack animation
+		bark_animation.visible = true
 		bark_animation.play("bark")
 		
 		# trigger attack hitbox (currently turned off in timer time out)
@@ -56,4 +57,5 @@ func _on_walk_cycle_rest() -> void:
 
 func _on_attack_cooldown_timeout() -> void:
 	bark_collider.disabled = true
+	bark_animation.visible = false
 	pass # Replace with function body.
