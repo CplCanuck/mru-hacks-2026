@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var attack_pivot: Marker2D = $"Attack Pivot"
 @onready var attack_cooldown: Timer = $"Attack Cooldown"
 @onready var bark_collider: CollisionShape2D = $"Attack Pivot/Area2D/CollisionShape2D"
+@onready var bark_animation: AnimatedSprite2D = $"Attack Pivot/Bark Animation"
 
 
 func _process(_delta: float) -> void:
@@ -36,8 +37,10 @@ func handle_attack_click():
 		attack_pivot.rotation = global_position.direction_to(get_global_mouse_position()).angle()
 		
 		# trigger attack animation
+		bark_animation.play("bark")
+		
+		# trigger attack hitbox (currently turned off in timer time out)
 		bark_collider.disabled = false
-		#trigger code here
 
 
 func _on_attack_cooldown_timeout() -> void:
