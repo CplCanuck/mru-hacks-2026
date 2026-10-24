@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://jok3quvn6ga6" path="res://assets/objects/player.gd" id="1_5pvfp"]
 [ext_resource type="Texture2D" uid="uid://bo61ecx5a02ga" path="res://icon.svg" id="1_ikdab"]
+[ext_resource type="Texture2D" uid="uid://iqj0shaupgj8" path="res://assets/sprites/icon.svg" id="3_jg13i"]
+[ext_resource type="Texture2D" uid="uid://dxadglr5jl0qk" path="res://assets/sprites/ProgressBar.png" id="4_6r1sy"]
+[ext_resource type="Script" uid="uid://dt36wd4ti631g" path="res://assets/objects/progress_bar.gd" id="4_jssbp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bi8p6"]
 radius = 70.0
@@ -14,3 +17,21 @@ shape = SubResource("CircleShape2D_bi8p6")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1374197492]
 texture = ExtResource("1_ikdab")
+
+[node name="Attack Cooldown" type="Timer" parent="." unique_id=1614825696]
+one_shot = true
+
+[node name="Attack Pivot" type="Marker2D" parent="." unique_id=1688328193]
+
+[node name="Sprite2D" type="Sprite2D" parent="Attack Pivot" unique_id=693191814]
+position = Vector2(130, 0)
+scale = Vector2(2, 0.25)
+texture = ExtResource("3_jg13i")
+
+[node name="Attack Cooldown Progress" type="TextureProgressBar" parent="." unique_id=86862075]
+offset_left = -64.0
+offset_top = -104.0
+offset_right = 64.0
+offset_bottom = -77.0
+texture_progress = ExtResource("4_6r1sy")
+script = ExtResource("4_jssbp")
