@@ -16,8 +16,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if interact_is_active && Input.is_action_just_pressed("interact"):
-		print("Interact!")
-	pass
+		if check_my_trees():
+			pass
+		else:
+			print("Trees still need revitalizing!")
+
+func check_my_trees() -> bool:
+	# Check if trees are revitalized from trees var
+	return false
 
 
 func _on_interact_area_body_entered(_body: Node2D) -> void:
