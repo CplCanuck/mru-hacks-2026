@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var stun_duration : float = 0.75
 @export var stun_knockback_force := 700.0
 
+@onready var player_sprite: Sprite2D = $"Player Sprite"
 @onready var attack_pivot: Marker2D = $"Attack Pivot"
 @onready var attack_cooldown: Timer = $"Attack Cooldown"
 @onready var bark_collider: CollisionShape2D = $"Attack Pivot/Attackbox/CollisionShape2D"
@@ -26,6 +27,11 @@ func _process(_delta: float) -> void:
 	# Change out for enemy hit once we have enemies
 	if Input.is_action_just_pressed("interact"):
 		handle_damage(global_position.direction_to(get_global_mouse_position()).normalized())
+	
+	if is_invincible:
+		run_invincibility_animation()
+	else:
+		player_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
 	
 	handle_walk_animation()
 	handle_attack_click()
@@ -74,6 +80,7 @@ func handle_damage(incoming_direction) -> void:
 	
 	# set invincibility
 	is_invincible = true
+	player_sprite.modulate = Color(1.0, 1.0, 1.0, 0.6)
 	invincibility_timer.start(invincibility_duration)
 	
 	# set stun
@@ -82,6 +89,12 @@ func handle_damage(incoming_direction) -> void:
 	if !stun_timer.is_stopped():
 		stun_timer.stop()
 	stun_timer.start(stun_duration)
+
+func run_invincibility_animation():
+	var time = Time.get_ticks_msec() # Not divided for smoother pulse
+	var pulse_speed := 0.03 # Higher is faster
+	var alpha_value = 0.25 * sin(time * pulse_speed) + 0.75
+	player_sprite.modulate = Color(1.0, 1.0, 1.0, alpha_value)
 
 
 
@@ -96,6 +109,7 @@ func _on_attack_cooldown_timeout() -> void:
 
 func _on_invincibility_timer_timeout() -> void:
 	is_invincible = false
+	player_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 func _on_stun_timer_timeout() -> void:
 	is_stunned = false
