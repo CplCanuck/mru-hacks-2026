@@ -66,7 +66,86 @@ height = 29.5
 [sub_resource type="CircleShape2D" id="CircleShape2D_1yt0f"]
 radius = 80.0
 
+[sub_resource type="Animation" id="Animation_6r1sy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nqkij"]
+resource_name = "waddle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(0.25, 0.25, 0.25, 0.25),
+"update": 0,
+"values": [0.0, -0.17453292, 0.0, 0.17453292519943295]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(0.25, 0.25, 0.25, 0.25),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0), Vector2(0, -5)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_on_walk_cycle_rest"
+}, {
+"args": [],
+"method": &"_on_walk_cycle_rest"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xvjlw"]
+_data = {
+&"RESET": SubResource("Animation_6r1sy"),
+&"waddle": SubResource("Animation_nqkij")
+}
+
 [node name="player" type="CharacterBody2D" unique_id=1106833625]
+collision_layer = 9
 script = ExtResource("1_5pvfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=733966564]
@@ -107,9 +186,11 @@ script = ExtResource("4_jssbp")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1777865291]
 collision_layer = 0
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1566410332]
 shape = SubResource("CircleShape2D_1yt0f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1995936352]
+libraries/ = SubResource("AnimationLibrary_xvjlw")
 
 [connection signal="timeout" from="Attack Cooldown" to="." method="_on_attack_cooldown_timeout"]

@@ -7,11 +7,13 @@ extends CharacterBody2D
 
 @onready var attack_pivot: Marker2D = $"Attack Pivot"
 @onready var attack_cooldown: Timer = $"Attack Cooldown"
-@onready var bark_collider: CollisionShape2D = $"Attack Pivot/Area2D/CollisionShape2D"
+@onready var bark_collider: CollisionShape2D = $"Attack Pivot/Attackbox/CollisionShape2D"
 @onready var bark_animation: AnimatedSprite2D = $"Attack Pivot/Bark Animation"
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _process(_delta: float) -> void:
+	handle_walk_animation()
 	handle_attack_click()
 
 func _physics_process(delta: float) -> void:
@@ -19,6 +21,12 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+
+func handle_walk_animation():
+	var input_direction = Input.get_vector("left", "right", "up", "down")
+	
+	if !velocity.is_zero_approx() && !input_direction.is_zero_approx():
+		animation_player.play("waddle")
 
 func handle_movement(delta):
 	var input_direction = Input.get_vector("left", "right", "up", "down")
@@ -42,6 +50,9 @@ func handle_attack_click():
 		# trigger attack hitbox (currently turned off in timer time out)
 		bark_collider.disabled = false
 
+func _on_walk_cycle_rest() -> void:
+	if velocity.is_zero_approx():
+		animation_player.play("RESET")
 
 func _on_attack_cooldown_timeout() -> void:
 	bark_collider.disabled = true
