@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var acceleration := 2000.0
 @export var friction := 1500.0
 @export var attack_cooldown_value := 1.0
-@export var invincibility_duration := 3.0
+@export var invincibility_duration := 2.5
 @export var stun_duration : float = 0.75
 @export var stun_knockback_force := 700.0
 
