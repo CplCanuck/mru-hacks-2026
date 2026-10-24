@@ -190,6 +190,7 @@ _data = {
 
 [node name="player" type="CharacterBody2D" unique_id=1106833625]
 collision_layer = 9
+collision_mask = 0
 script = ExtResource("1_5pvfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=733966564]
@@ -240,6 +241,7 @@ offset_right = 64.0
 offset_bottom = 100.0
 texture_progress = ExtResource("4_6r1sy")
 script = ExtResource("4_jssbp")
+metadata/_edit_use_anchors_ = true
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1777865291]
 collision_layer = 0

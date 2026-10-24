@@ -25,7 +25,7 @@ var is_invincible : bool = false
 
 func _process(_delta: float) -> void:
 	# Change out for enemy hit once we have enemies
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("test"):
 		handle_damage(global_position.direction_to(get_global_mouse_position()).normalized())
 	
 	if is_invincible:
