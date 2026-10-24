@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://l335vbhbnlvy"]
+
+[ext_resource type="Script" uid="uid://b451o67l0106o" path="res://assets/music/test_control.gd" id="1_y6pu0"]
+
+[node name="Control" type="Control" unique_id=178120223]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y6pu0")
+
+[node name="Container" type="VBoxContainer" parent="." unique_id=597920565]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Container" unique_id=1461496129]
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="Container" unique_id=286128354]
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="Container" unique_id=1768971773]
+layout_mode = 2
+text = "3"
+
+[node name="Button4" type="Button" parent="Container" unique_id=1383313864]
+layout_mode = 2
+text = "4"
+
+[node name="Button5" type="Button" parent="Container" unique_id=771193742]
+layout_mode = 2
+text = "5"
+
+[node name="Button6" type="Button" parent="Container" unique_id=1233275987]
+layout_mode = 2
+text = "6"
+
+[node name="Button7" type="Button" parent="Container" unique_id=1303007936]
+layout_mode = 2
+text = "1"
+
+[connection signal="pressed" from="Container/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Container/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Container/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Container/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Container/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Container/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="Container/Button7" to="." method="_on_button_7_pressed"]

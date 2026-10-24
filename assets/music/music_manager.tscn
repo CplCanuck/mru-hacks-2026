@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dclwv5jnsb230"]
+
+[ext_resource type="Script" uid="uid://qqrgexgw8gyn" path="res://music_manager.gd" id="1_6ruce"]
+[ext_resource type="AudioStream" uid="uid://cn0ilyamsdv6c" path="res://assets/music/music_assets/freesound_community-metronome-121bpm-85063.mp3" id="2_6ruce"]
+
+[node name="MusicManager" type="Node" unique_id=1033291426]
+script = ExtResource("1_6ruce")
+
+[node name="MainMusic" type="Node" parent="." unique_id=1714642808]
+
+[node name="MainStep1" type="AudioStreamPlayer" parent="MainMusic" unique_id=1839364687]
+stream = ExtResource("2_6ruce")
+bus = &"Music"
+
+[node name="MainStep2" type="AudioStreamPlayer" parent="MainMusic" unique_id=194855931]
+stream = ExtResource("2_6ruce")
+bus = &"Music"
+
+[node name="MainStep3" type="AudioStreamPlayer" parent="MainMusic" unique_id=318526215]
+stream = ExtResource("2_6ruce")
+bus = &"Music"
+
+[node name="MainStep4" type="AudioStreamPlayer" parent="MainMusic" unique_id=204859280]
+stream = ExtResource("2_6ruce")
+bus = &"Music"
+
+[node name="MainStep5" type="AudioStreamPlayer" parent="MainMusic" unique_id=1900951477]
+stream = ExtResource("2_6ruce")
+bus = &"Music"
+
+[node name="Menu" type="AudioStreamPlayer" parent="." unique_id=1120250287]
+stream = ExtResource("2_6ruce")
+bus = &"Music"
