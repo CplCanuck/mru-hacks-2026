@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dvghrtpc5mq4p" path="res://assets/scenes/main_camera_2d.gd" id="1_sfrgt"]
 [ext_resource type="PackedScene" uid="uid://cj6xy7mulabb6" path="res://assets/objects/enemy.tscn" id="2_dfgan"]
 [ext_resource type="PackedScene" uid="uid://bqhjiiceuhlyx" path="res://assets/objects/player.tscn" id="3_sfrgt"]
+[ext_resource type="Texture2D" uid="uid://vcfmna6nsw54" path="res://assets/sprites/Shrine.png" id="5_etxf0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dfgan"]
 texture = ExtResource("1_kpi06")
@@ -16,7 +17,8 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/6 = SubResource("TileSetAtlasSource_dfgan")
 
-[node name="main" type="Node" unique_id=1568987512]
+[node name="main" type="Node2D" unique_id=1006457170]
+y_sort_enabled = true
 
 [node name="MainCamera2D" type="Camera2D" parent="." unique_id=430699607]
 position = Vector2(303, 272)
@@ -31,3 +33,8 @@ position = Vector2(831, 511)
 
 [node name="player" parent="." unique_id=1106833625 instance=ExtResource("3_sfrgt")]
 position = Vector2(303, 272)
+
+[node name="Shrine" type="Sprite2D" parent="." unique_id=1330938681]
+position = Vector2(729, 236)
+scale = Vector2(4, 4)
+texture = ExtResource("5_etxf0")
