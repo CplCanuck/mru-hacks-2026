@@ -19,3 +19,12 @@ func _on_button_6_pressed():
 
 func _on_button_7_pressed():
 	MusicManager.switch_music(MusicManager.song_type.MENU)
+
+func _on_button_8_pressed():
+	MusicManager.start_one_by_one()
+
+func _on_button_9_pressed():
+	MusicManager.stop_one_by_one()
+
+func _on_button_10_pressed():
+	MusicManager.add_next_music_step()

@@ -22,31 +22,43 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="Container" unique_id=1461496129]
 layout_mode = 2
-text = "1"
+text = "Base"
 
 [node name="Button2" type="Button" parent="Container" unique_id=286128354]
 layout_mode = 2
-text = "2"
+text = "Deer"
 
 [node name="Button3" type="Button" parent="Container" unique_id=1768971773]
 layout_mode = 2
-text = "3"
+text = "Bear"
 
 [node name="Button4" type="Button" parent="Container" unique_id=1383313864]
 layout_mode = 2
-text = "4"
+text = "Third"
 
 [node name="Button5" type="Button" parent="Container" unique_id=771193742]
 layout_mode = 2
-text = "5"
+text = "Complete"
 
 [node name="Button6" type="Button" parent="Container" unique_id=1233275987]
 layout_mode = 2
-text = "6"
+text = "stop all"
 
 [node name="Button7" type="Button" parent="Container" unique_id=1303007936]
 layout_mode = 2
-text = "1"
+text = "Menu"
+
+[node name="Button8" type="Button" parent="Container" unique_id=1640899717]
+layout_mode = 2
+text = "fade in"
+
+[node name="Button9" type="Button" parent="Container" unique_id=855819541]
+layout_mode = 2
+text = "cutscene (fade out)"
+
+[node name="Button10" type="Button" parent="Container" unique_id=1560769710]
+layout_mode = 2
+text = "add next step"
 
 [connection signal="pressed" from="Container/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Container/Button2" to="." method="_on_button_2_pressed"]
@@ -55,3 +67,6 @@ text = "1"
 [connection signal="pressed" from="Container/Button5" to="." method="_on_button_5_pressed"]
 [connection signal="pressed" from="Container/Button6" to="." method="_on_button_6_pressed"]
 [connection signal="pressed" from="Container/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="Container/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="Container/Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="Container/Button10" to="." method="_on_button_10_pressed"]
