@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
+
 func _process(_delta: float) -> void:
 	handle_walk_animation()
 	handle_attack_click()
@@ -19,7 +20,6 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	handle_movement(delta)
 	move_and_slide()
-
 
 
 func handle_walk_animation():
@@ -50,6 +50,7 @@ func handle_attack_click():
 		
 		# trigger attack hitbox (currently turned off in timer time out)
 		bark_collider.disabled = false
+
 
 func _handle_rest() -> void:
 	if velocity.is_zero_approx():
