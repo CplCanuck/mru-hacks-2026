@@ -2,12 +2,48 @@
 
 [ext_resource type="Script" uid="uid://jok3quvn6ga6" path="res://assets/objects/player.gd" id="1_5pvfp"]
 [ext_resource type="Texture2D" uid="uid://dmreb8bu4bxac" path="res://icon.svg" id="1_ikdab"]
-[ext_resource type="Texture2D" uid="uid://iqj0shaupgj8" path="res://assets/sprites/icon.svg" id="3_jg13i"]
+[ext_resource type="Texture2D" uid="uid://bt7n554ph21w0" path="res://assets/sprites/bark-attack-1.png" id="3_6r1sy"]
 [ext_resource type="Texture2D" uid="uid://dxadglr5jl0qk" path="res://assets/sprites/ProgressBar.png" id="4_6r1sy"]
 [ext_resource type="Script" uid="uid://dt36wd4ti631g" path="res://assets/objects/progress_bar.gd" id="4_jssbp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bi8p6"]
 radius = 70.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqkij"]
+atlas = ExtResource("3_6r1sy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvjlw"]
+atlas = ExtResource("3_6r1sy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh75e"]
+atlas = ExtResource("3_6r1sy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkysh"]
+atlas = ExtResource("3_6r1sy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bi8p6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqkij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvjlw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fh75e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkysh")
+}],
+"loop": 1,
+"name": &"bark",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1yt0f"]
 radius = 13.0
@@ -27,10 +63,13 @@ one_shot = true
 
 [node name="Attack Pivot" type="Marker2D" parent="." unique_id=1688328193]
 
-[node name="Sprite2D" type="Sprite2D" parent="Attack Pivot" unique_id=693191814]
-position = Vector2(130, 0)
-scale = Vector2(2, 0.25)
-texture = ExtResource("3_jg13i")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Attack Pivot" unique_id=1659706803]
+position = Vector2(160, 0)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_bi8p6")
+animation = &"bark"
+frame = 2
+frame_progress = 0.13038023
 
 [node name="Area2D" type="Area2D" parent="Attack Pivot" unique_id=342060343]
 
