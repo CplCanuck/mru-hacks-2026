@@ -51,7 +51,7 @@ func handle_attack_click():
 		# trigger attack hitbox (currently turned off in timer time out)
 		bark_collider.disabled = false
 
-func _on_walk_cycle_rest() -> void:
+func _handle_rest() -> void:
 	if velocity.is_zero_approx():
 		animation_player.play("RESET")
 

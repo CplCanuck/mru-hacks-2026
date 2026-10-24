@@ -124,10 +124,10 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
-"method": &"_on_walk_cycle_rest"
+"method": &"_handle_rest"
 }, {
 "args": [],
-"method": &"_on_walk_cycle_rest"
+"method": &"_handle_rest"
 }]
 }
 
