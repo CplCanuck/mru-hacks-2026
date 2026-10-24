@@ -1,37 +1,255 @@
 [gd_scene format=3 uid="uid://bqhjiiceuhlyx"]
 
 [ext_resource type="Script" uid="uid://jok3quvn6ga6" path="res://assets/objects/player.gd" id="1_5pvfp"]
-[ext_resource type="Texture2D" uid="uid://bo61ecx5a02ga" path="res://icon.svg" id="1_ikdab"]
-[ext_resource type="Texture2D" uid="uid://iqj0shaupgj8" path="res://assets/sprites/icon.svg" id="3_jg13i"]
+[ext_resource type="Texture2D" uid="uid://dmreb8bu4bxac" path="res://icon.svg" id="1_ikdab"]
+[ext_resource type="Texture2D" uid="uid://c7rvyl8eukwj4" path="res://assets/sprites/stun_stars.png" id="2_nqkij"]
+[ext_resource type="Texture2D" uid="uid://bt7n554ph21w0" path="res://assets/sprites/bark-attack-1.png" id="3_6r1sy"]
 [ext_resource type="Texture2D" uid="uid://dxadglr5jl0qk" path="res://assets/sprites/ProgressBar.png" id="4_6r1sy"]
 [ext_resource type="Script" uid="uid://dt36wd4ti631g" path="res://assets/objects/progress_bar.gd" id="4_jssbp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bi8p6"]
 radius = 70.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_htwuo"]
+atlas = ExtResource("2_nqkij")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34ecl"]
+atlas = ExtResource("2_nqkij")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg3d2"]
+atlas = ExtResource("2_nqkij")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qp14"]
+atlas = ExtResource("2_nqkij")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgtm8"]
+atlas = ExtResource("2_nqkij")
+region = Rect2(128, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7muya"]
+atlas = ExtResource("2_nqkij")
+region = Rect2(160, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1yt0f"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_htwuo")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_34ecl")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_fg3d2")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_1qp14")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_qgtm8")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7muya")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqkij"]
+atlas = ExtResource("3_6r1sy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvjlw"]
+atlas = ExtResource("3_6r1sy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh75e"]
+atlas = ExtResource("3_6r1sy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkysh"]
+atlas = ExtResource("3_6r1sy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvyht"]
+atlas = ExtResource("3_6r1sy")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bi8p6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqkij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvjlw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fh75e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkysh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvyht")
+}],
+"loop": 0,
+"name": &"bark",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1yt0f"]
+radius = 13.0
+height = 29.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1yt0f"]
+radius = 80.0
+
+[sub_resource type="Animation" id="Animation_6r1sy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nqkij"]
+resource_name = "waddle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player Sprite:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(0.25, 0.25, 0.25, 0.25),
+"update": 0,
+"values": [0.0, -0.17453292, 0.0, 0.17453292519943295]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player Sprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(0.25, 0.25, 0.25, 0.25),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0), Vector2(0, -5)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_handle_rest"
+}, {
+"args": [],
+"method": &"_handle_rest"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xvjlw"]
+_data = {
+&"RESET": SubResource("Animation_6r1sy"),
+&"waddle": SubResource("Animation_nqkij")
+}
+
 [node name="player" type="CharacterBody2D" unique_id=1106833625]
+collision_layer = 9
 script = ExtResource("1_5pvfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=733966564]
 shape = SubResource("CircleShape2D_bi8p6")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1374197492]
+[node name="Stun Stars" type="AnimatedSprite2D" parent="." unique_id=1874224851]
+visible = false
+position = Vector2(0, -100)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_1yt0f")
+autoplay = "default"
+
+[node name="Player Sprite" type="Sprite2D" parent="." unique_id=1374197492]
 texture = ExtResource("1_ikdab")
 
 [node name="Attack Cooldown" type="Timer" parent="." unique_id=1614825696]
 one_shot = true
 
+[node name="Invincibility Timer" type="Timer" parent="." unique_id=1739945009]
+one_shot = true
+
+[node name="Stun Timer" type="Timer" parent="." unique_id=45758578]
+one_shot = true
+
 [node name="Attack Pivot" type="Marker2D" parent="." unique_id=1688328193]
 
-[node name="Sprite2D" type="Sprite2D" parent="Attack Pivot" unique_id=693191814]
-position = Vector2(130, 0)
-scale = Vector2(2, 0.25)
-texture = ExtResource("3_jg13i")
+[node name="Bark Animation" type="AnimatedSprite2D" parent="Attack Pivot" unique_id=1659706803]
+visible = false
+position = Vector2(160, 0)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_bi8p6")
+animation = &"bark"
+
+[node name="Attackbox" type="Area2D" parent="Attack Pivot" unique_id=342060343]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack Pivot/Attackbox" unique_id=1787065295]
+position = Vector2(160, 0)
+scale = Vector2(8, 8)
+shape = SubResource("CapsuleShape2D_1yt0f")
+disabled = true
 
 [node name="Attack Cooldown Progress" type="TextureProgressBar" parent="." unique_id=86862075]
 offset_left = -64.0
-offset_top = -104.0
+offset_top = 73.0
 offset_right = 64.0
-offset_bottom = -77.0
+offset_bottom = 100.0
 texture_progress = ExtResource("4_6r1sy")
 script = ExtResource("4_jssbp")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1777865291]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1566410332]
+shape = SubResource("CircleShape2D_1yt0f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1995936352]
+libraries/ = SubResource("AnimationLibrary_xvjlw")
+
+[connection signal="timeout" from="Attack Cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="Invincibility Timer" to="." method="_on_invincibility_timer_timeout"]
+[connection signal="timeout" from="Stun Timer" to="." method="_on_stun_timer_timeout"]
