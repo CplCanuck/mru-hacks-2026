@@ -2,12 +2,63 @@
 
 [ext_resource type="Script" uid="uid://jok3quvn6ga6" path="res://assets/objects/player.gd" id="1_5pvfp"]
 [ext_resource type="Texture2D" uid="uid://dmreb8bu4bxac" path="res://icon.svg" id="1_ikdab"]
+[ext_resource type="Texture2D" uid="uid://c7rvyl8eukwj4" path="res://assets/sprites/stun_stars.png" id="2_nqkij"]
 [ext_resource type="Texture2D" uid="uid://bt7n554ph21w0" path="res://assets/sprites/bark-attack-1.png" id="3_6r1sy"]
 [ext_resource type="Texture2D" uid="uid://dxadglr5jl0qk" path="res://assets/sprites/ProgressBar.png" id="4_6r1sy"]
 [ext_resource type="Script" uid="uid://dt36wd4ti631g" path="res://assets/objects/progress_bar.gd" id="4_jssbp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bi8p6"]
 radius = 70.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htwuo"]
+atlas = ExtResource("2_nqkij")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34ecl"]
+atlas = ExtResource("2_nqkij")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg3d2"]
+atlas = ExtResource("2_nqkij")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qp14"]
+atlas = ExtResource("2_nqkij")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgtm8"]
+atlas = ExtResource("2_nqkij")
+region = Rect2(128, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7muya"]
+atlas = ExtResource("2_nqkij")
+region = Rect2(160, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1yt0f"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_htwuo")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_34ecl")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_fg3d2")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_1qp14")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_qgtm8")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7muya")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nqkij"]
 atlas = ExtResource("3_6r1sy")
@@ -64,7 +115,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:rotation")
+tracks/0/path = NodePath("Player Sprite:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -76,7 +127,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Icon:position")
+tracks/1/path = NodePath("Player Sprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -92,7 +143,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:rotation")
+tracks/0/path = NodePath("Player Sprite:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -104,7 +155,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Icon:position")
+tracks/1/path = NodePath("Player Sprite:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -144,10 +195,23 @@ script = ExtResource("1_5pvfp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=733966564]
 shape = SubResource("CircleShape2D_bi8p6")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1374197492]
+[node name="Stun Stars" type="AnimatedSprite2D" parent="." unique_id=1874224851]
+visible = false
+position = Vector2(0, -100)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_1yt0f")
+autoplay = "default"
+
+[node name="Player Sprite" type="Sprite2D" parent="." unique_id=1374197492]
 texture = ExtResource("1_ikdab")
 
 [node name="Attack Cooldown" type="Timer" parent="." unique_id=1614825696]
+one_shot = true
+
+[node name="Invincibility Timer" type="Timer" parent="." unique_id=1739945009]
+one_shot = true
+
+[node name="Stun Timer" type="Timer" parent="." unique_id=45758578]
 one_shot = true
 
 [node name="Attack Pivot" type="Marker2D" parent="." unique_id=1688328193]
@@ -171,9 +235,9 @@ disabled = true
 
 [node name="Attack Cooldown Progress" type="TextureProgressBar" parent="." unique_id=86862075]
 offset_left = -64.0
-offset_top = -104.0
+offset_top = 73.0
 offset_right = 64.0
-offset_bottom = -77.0
+offset_bottom = 100.0
 texture_progress = ExtResource("4_6r1sy")
 script = ExtResource("4_jssbp")
 
@@ -187,3 +251,5 @@ shape = SubResource("CircleShape2D_1yt0f")
 libraries/ = SubResource("AnimationLibrary_xvjlw")
 
 [connection signal="timeout" from="Attack Cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="Invincibility Timer" to="." method="_on_invincibility_timer_timeout"]
+[connection signal="timeout" from="Stun Timer" to="." method="_on_stun_timer_timeout"]
