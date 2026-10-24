@@ -63,6 +63,9 @@ animations = [{
 radius = 13.0
 height = 29.5
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1yt0f"]
+radius = 80.0
+
 [node name="player" type="CharacterBody2D" unique_id=1106833625]
 script = ExtResource("1_5pvfp")
 
@@ -84,9 +87,11 @@ sprite_frames = SubResource("SpriteFrames_bi8p6")
 animation = &"bark"
 frame_progress = 0.9125994
 
-[node name="Area2D" type="Area2D" parent="Attack Pivot" unique_id=342060343]
+[node name="Attackbox" type="Area2D" parent="Attack Pivot" unique_id=342060343]
+collision_layer = 4
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack Pivot/Area2D" unique_id=1787065295]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack Pivot/Attackbox" unique_id=1787065295]
 position = Vector2(160, 0)
 scale = Vector2(8, 8)
 shape = SubResource("CapsuleShape2D_1yt0f")
@@ -99,5 +104,12 @@ offset_right = 64.0
 offset_bottom = -77.0
 texture_progress = ExtResource("4_6r1sy")
 script = ExtResource("4_jssbp")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1777865291]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1566410332]
+shape = SubResource("CircleShape2D_1yt0f")
 
 [connection signal="timeout" from="Attack Cooldown" to="." method="_on_attack_cooldown_timeout"]
