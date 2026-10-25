@@ -8,6 +8,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_bi8p6"]
 radius = 50.0
 
+[sub_resource type="Gradient" id="Gradient_fc3o2"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [sub_resource type="Gradient" id="Gradient_g8u1f"]
 colors = PackedColorArray(0.31666672, 1, 0, 1, 0.152, 0.76, 0.5472, 1)
 
@@ -58,7 +61,7 @@ position = Vector2(0, -120)
 emitting = false
 amount = 50
 texture = ExtResource("4_stjl5")
-lifetime = 1.5
+lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
 direction = Vector2(0, -1)
@@ -69,6 +72,7 @@ angular_velocity_min = -720.0
 angular_velocity_max = 720.0
 scale_amount_min = 1.5
 scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_fc3o2")
 color_initial_ramp = SubResource("Gradient_g8u1f")
 
 [connection signal="body_entered" from="Interact Area" to="." method="_on_interact_area_body_entered"]

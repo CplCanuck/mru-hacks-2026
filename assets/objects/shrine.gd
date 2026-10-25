@@ -30,7 +30,6 @@ func _process(_delta: float) -> void:
 			shrine_done = true
 			interact_is_active = false
 			interact_prompt.visible = false
-			hurray_particles.emitting = true
 			print("Shrine Success!")
 		else:
 			print("Trees still need revitalizing!")
@@ -45,11 +44,13 @@ func check_my_trees() -> bool:
 	return true
 
 func shrine_hurray():
-	
-	pass
+	hurray_particles.emitting = true
 
 
 func _on_interact_area_body_entered(_body: Node2D) -> void:
+	if shrine_done:
+		return
+		
 	interact_is_active = true
 	interact_prompt.visible = true
 	pass
