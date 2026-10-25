@@ -34,12 +34,14 @@ func _on_body_entered(body):
 				type.DEER:
 					if Backpack.has_deer_soul:
 						make_live()
-						pass
+					else:
+						print("No deer soul")
 				pass
 				type.BEAR:
 					if Backpack.has_bear_soul:
 						make_live()
-						pass
+					else:
+						print("No bear soul")
 				pass
 			pass
 		state.REBITALIZED:
@@ -48,4 +50,6 @@ func _on_body_entered(body):
 	pass 
 
 func make_live():
+	$AnimatedSprite2D.play(revit_s)
+	cur = state.REBITALIZED
 	pass

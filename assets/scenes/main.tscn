@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://c7ifwv6s0lity" path="res://assets/sprites/particle-square.png" id="6_6rsl6"]
 [ext_resource type="PackedScene" uid="uid://cfiknwojgqbo0" path="res://assets/objects/thorns.tscn" id="7_p5d64"]
 [ext_resource type="PackedScene" uid="uid://buyehsgtm576j" path="res://assets/objects/enemy_tree.tscn" id="8_6rsl6"]
+[ext_resource type="PackedScene" uid="uid://b6msd4q1xiwba" path="res://assets/objects/spirits.tscn" id="9_p5d64"]
+[ext_resource type="PackedScene" uid="uid://bdryjmjc77qsf" path="res://assets/objects/animal.tscn" id="13_ytb86"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_774ty"]
 
@@ -190,6 +192,7 @@ position = Vector2(570, -560)
 
 [node name="EnemyTree" parent="." unique_id=1938661581 instance=ExtResource("8_6rsl6")]
 position = Vector2(661, -23)
+cur_type = 0
 
 [node name="Win Room Label" type="Label" parent="." unique_id=334183200]
 offset_top = 3840.0
@@ -209,7 +212,6 @@ texture = ExtResource("4_p5d64")
 
 [node name="EnemyTree2" parent="." unique_id=868746619 instance=ExtResource("8_6rsl6")]
 position = Vector2(1191, 353)
-cur_type = 0
 
 [node name="EnemyTree3" parent="." unique_id=2124526008 instance=ExtResource("8_6rsl6")]
 position = Vector2(965, 1075)
@@ -228,9 +230,24 @@ cur_type = 0
 [node name="EnemyTree7" parent="." unique_id=1650975366 instance=ExtResource("8_6rsl6")]
 position = Vector2(-2273, 948)
 
-[node name="EnemyTree8" parent="." unique_id=1943983397 instance=ExtResource("8_6rsl6")]
-position = Vector2(-2320, 248)
+[node name="EnemyTree8" parent="." unique_id=184095110 instance=ExtResource("8_6rsl6")]
+position = Vector2(-4546, 1896)
 cur_type = 0
+
+[node name="Spirits" parent="." unique_id=624903803 instance=ExtResource("9_p5d64")]
+position = Vector2(541, 601)
+soul_type = 2
+
+[node name="animal" parent="." unique_id=1251309495 instance=ExtResource("13_ytb86")]
+position = Vector2(403, 1489)
+
+[node name="animal2" parent="." unique_id=1687086771 instance=ExtResource("13_ytb86")]
+position = Vector2(709, 1489)
+animal = 1
+
+[node name="Spirits2" parent="." unique_id=1894313625 instance=ExtResource("9_p5d64")]
+position = Vector2(-2590, 598)
+soul_type = 3
 
 [connection signal="body_entered" from="FinalArea" to="MusicManager" method="_on_final_area_body_entered"]
 [connection signal="_on_shrine_success" from="Shrine" to="MusicManager" method="_on_shrine__on_shrine_success"]

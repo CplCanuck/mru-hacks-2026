@@ -24,7 +24,7 @@ enum states {
 var current_state = states.IDLE
 var setuped_state = -1
 var player_in_range := false
-var length_of_vine_atk = 8.0
+var length_of_vine_atk = 4.0
 
 @export var cur_type = tree_type.VINES_C
 var corrupt_sprite = "needle_c"
@@ -218,6 +218,10 @@ func _on_body_area_entered(_area: Area2D) -> void:
 		sprite.play(wither_sprite)
 		var new_soul = SOUL.instantiate()
 		get_tree().current_scene.add_child(new_soul)
+		if tree_type.NEEDLES_C || tree_type.VINES_R:
+			new_soul.soul_type = new_soul.type.VINE
+		if tree_type.VINES_C || tree_type.NEEDLES_R:
+			new_soul.soul_type = new_soul.type.PINE
 		new_soul.global_position = global_position 
 		#sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		current_state = states.DEFEATED

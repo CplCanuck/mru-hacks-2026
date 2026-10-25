@@ -80,8 +80,9 @@ func handle_attack_click():
 		# trigger attack animation
 		bark_animation.visible = true
 		bark_animation.play("bark")
-		$BarkSFX.play()
-		
+
+		$BarkSound.play()
+
 		# trigger attack hitbox (currently turned off in timer time out)
 		bark_collider.disabled = false
 
@@ -89,6 +90,9 @@ func handle_damage(incoming_direction: Vector2) -> void:
 	# don't need to handle damage if we have i frames
 	if is_invincible:
 		return
+	
+	# ouch sound
+	$HurtSound.play()
 	
 	# knock player in the opposite direction of incoming attack
 	velocity = Vector2.ONE * (-(incoming_direction.normalized()) * stun_knockback_force)

@@ -15,18 +15,33 @@ func _ready():
 	#vine_label.add_theme_font_size_override()
 	pass
 
+func _process(delta):
+	if has_deer_soul == true:
+		$Control/MarginContainer/HBoxContainer/VBoxContainer3.visible = true
+	else:
+		$Control/MarginContainer/HBoxContainer/VBoxContainer3.visible = false
+	if has_deer_soul == true:
+		$Control/MarginContainer/HBoxContainer/VBoxContainer4.visible = true
+	else:
+		$Control/MarginContainer/HBoxContainer/VBoxContainer4.visible = false
+
 func add_vine_soul():
 	vine_souls += 1
-	vine_label.text = str(vine_souls)
+	vine_label.text = "" + str(vine_souls)
 
 func add_pine_soul():
 	pine_souls += 1
-	pine_souls.text = str(pine_souls)
+	pine_label.text = "" + str(pine_souls)
 
 func sub_vine_soul():
 	vine_souls -= 1
-	vine_label.text = str(vine_souls)
+	vine_label.text = "" + str(vine_souls)
 
 func sub_pine_soul():
 	pine_souls -= 1
-	pine_souls.text = str(pine_souls)
+	pine_label.text = "" + str(pine_souls)
+
+
+func _input(event):
+	if event.is_action_pressed("reset"):
+		get_tree().reload_current_scene()

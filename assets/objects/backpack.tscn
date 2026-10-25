@@ -26,6 +26,7 @@ offset_right = 48.0
 offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.9932593, 1)
 theme_override_constants/margin_left = 14
 theme_override_constants/margin_top = 14
 theme_override_constants/margin_right = 14
@@ -39,6 +40,13 @@ size_flags_vertical = 0
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer" unique_id=74709206]
 layout_mode = 2
 
+[node name="CenterContainer" type="CenterContainer" parent="Control/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=292710143]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/VBoxContainer2/CenterContainer" unique_id=368127418]
+layout_mode = 2
+texture = ExtResource("2_f61jv")
+
 [node name="CenterContainer2" type="CenterContainer" parent="Control/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1146096258]
 layout_mode = 2
 
@@ -46,13 +54,6 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "0"
-
-[node name="CenterContainer" type="CenterContainer" parent="Control/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=292710143]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/VBoxContainer2/CenterContainer" unique_id=368127418]
-layout_mode = 2
-texture = ExtResource("2_f61jv")
 
 [node name="VSeparator" type="VSeparator" parent="Control/MarginContainer/HBoxContainer" unique_id=266751130]
 layout_mode = 2
@@ -62,6 +63,13 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_xrivr")
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer" unique_id=146738033]
 layout_mode = 2
 
+[node name="CenterContainer" type="CenterContainer" parent="Control/MarginContainer/HBoxContainer/VBoxContainer" unique_id=685308708]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/VBoxContainer/CenterContainer" unique_id=763636197]
+layout_mode = 2
+texture = ExtResource("2_f61jv")
+
 [node name="CenterContainer2" type="CenterContainer" parent="Control/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2074869090]
 layout_mode = 2
 
@@ -70,9 +78,52 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "0"
 
-[node name="CenterContainer" type="CenterContainer" parent="Control/MarginContainer/HBoxContainer/VBoxContainer" unique_id=685308708]
+[node name="VSeparator2" type="VSeparator" parent="Control/MarginContainer/HBoxContainer" unique_id=74338243]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxEmpty_xrivr")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer" unique_id=1348908907]
+visible = false
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/VBoxContainer/CenterContainer" unique_id=763636197]
+[node name="CenterContainer2" type="CenterContainer" parent="Control/MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1624138633]
+layout_mode = 2
+
+[node name="Bear" type="Label" parent="Control/MarginContainer/HBoxContainer/VBoxContainer3/CenterContainer2" unique_id=1258385196]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1899306592]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/VBoxContainer3/CenterContainer" unique_id=1918168051]
+layout_mode = 2
+texture = ExtResource("2_f61jv")
+
+[node name="VSeparator3" type="VSeparator" parent="Control/MarginContainer/HBoxContainer" unique_id=38225859]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxEmpty_xrivr")
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer" unique_id=131701207]
+visible = false
+layout_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="Control/MarginContainer/HBoxContainer/VBoxContainer4" unique_id=1706142482]
+layout_mode = 2
+
+[node name="Deer" type="Label" parent="Control/MarginContainer/HBoxContainer/VBoxContainer4/CenterContainer2" unique_id=1003970333]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/MarginContainer/HBoxContainer/VBoxContainer4" unique_id=1007160783]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/VBoxContainer4/CenterContainer" unique_id=622365395]
 layout_mode = 2
 texture = ExtResource("2_f61jv")

@@ -8,9 +8,11 @@ var cur_direction = Vector2(0,0)
 var max_distance = 160
 enum type {
 	VINE,
-	PINE
+	PINE,
+	DEER,
+	BEAR
 }
-@export var soul_type = type.VINE
+@export var soul_type : type
 
 func _ready():
 	pass
@@ -22,6 +24,16 @@ func _ready():
 	#	trys += 1
 	#	if trys > 10:
 	#		print("Couldn't find backpact for setting up spirit")
+func _process(_delta):
+	if soul_type == type.VINE:
+		$AnimatedSprite2D.play("vine")
+	if soul_type == type.PINE:
+		$AnimatedSprite2D.play("pine")
+	if soul_type == type.BEAR:
+		$AnimatedSprite2D.play("bear")
+	if soul_type == type.DEER:
+		$AnimatedSprite2D.play("deer")
+	pass
 
 func _physics_process(delta):
 	if player and player_in_range:
@@ -44,7 +56,14 @@ func _physics_process(delta):
 	pass
 	
 func collect():
-	Backpack.add_vine_soul()
+	if soul_type == type.VINE:
+		Backpack.add_vine_soul()
+	if soul_type == type.PINE:
+		Backpack.add_pine_soul()
+	if soul_type == type.BEAR:
+		Backpack.has_bear_soul = true
+	if soul_type == type.DEER:
+		Backpack.has_deer_soul = true
 	pass
 
 func _on_player_near_box_body_entered(body):
