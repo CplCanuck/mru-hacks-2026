@@ -85,13 +85,13 @@ func handle_attack_click():
 		# trigger attack hitbox (currently turned off in timer time out)
 		bark_collider.disabled = false
 
-func handle_damage(incoming_direction) -> void:
+func handle_damage(incoming_direction: Vector2) -> void:
 	# don't need to handle damage if we have i frames
 	if is_invincible:
 		return
 	
 	# knock player in the opposite direction of incoming attack
-	velocity = Vector2.ONE * (-(incoming_direction) * stun_knockback_force)
+	velocity = Vector2.ONE * (-(incoming_direction.normalized()) * stun_knockback_force)
 	
 	# set invincibility
 	is_invincible = true
@@ -132,3 +132,7 @@ func _on_stun_timer_timeout() -> void:
 
 func _on_bark_animation_animation_finished() -> void:
 	player_sprite.frame = 0
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	print("PLAYER HAS BEEN HIT")
+	handle_damage(area.position)
