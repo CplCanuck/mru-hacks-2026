@@ -1,6 +1,6 @@
 extends Node2D
 
-signal _on_shrine_success
+signal _on_shrine_success(position  : Vector2)
 
 @export var trees : Array[Node2D] = []
 
@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 	
 	if interact_is_active && Input.is_action_just_pressed("interact"):
 		if check_my_trees():
-			_on_shrine_success.emit()
+			_on_shrine_success.emit(global_position)
 			shrine_hurray()
 			
 			shrine_done = true
