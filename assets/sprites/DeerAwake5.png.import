@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bupqew28x2mux"
-path="res://.godot/imported/DeerAwake.png-df5d4237e5533858e4fb6854c133a5fe.ctex"
+uid="uid://bhp8jvv2yyew3"
+path="res://.godot/imported/DeerAwake5.png-f9fd099a906970668770bafd6cde5328.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/DeerAwake.png"
-dest_files=["res://.godot/imported/DeerAwake.png-df5d4237e5533858e4fb6854c133a5fe.ctex"]
+source_file="res://assets/sprites/DeerAwake5.png"
+dest_files=["res://.godot/imported/DeerAwake5.png-f9fd099a906970668770bafd6cde5328.ctex"]
 
 [params]
 
