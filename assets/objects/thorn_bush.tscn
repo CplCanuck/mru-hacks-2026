@@ -28,25 +28,23 @@ color_initial_ramp = SubResource("Gradient_xplbd")
 metadata/_edit_lock_ = true
 
 [node name="EndPoint" type="Marker2D" parent="Unlock Particles" unique_id=131124395]
-position = Vector2(543, 1602)
 
 [node name="Thorns" parent="." unique_id=699148790 instance=ExtResource("3_8cck5")]
-position = Vector2(354, 1608)
 
 [node name="Thorns2" parent="." unique_id=1503129771 instance=ExtResource("3_8cck5")]
-position = Vector2(419, 1607)
+position = Vector2(64, 0)
 
 [node name="Thorns3" parent="." unique_id=1601616270 instance=ExtResource("3_8cck5")]
-position = Vector2(484, 1606)
+position = Vector2(128, 0)
 
 [node name="Thorns4" parent="." unique_id=430986737 instance=ExtResource("3_8cck5")]
-position = Vector2(551, 1608)
+position = Vector2(192, 0)
 
 [node name="Thorns5" parent="." unique_id=407878412 instance=ExtResource("3_8cck5")]
-position = Vector2(617, 1608)
+position = Vector2(-64, 0)
 
 [node name="Thorns6" parent="." unique_id=1366380515 instance=ExtResource("3_8cck5")]
-position = Vector2(682, 1609)
+position = Vector2(-128, 0)
 
 [node name="Thorns7" parent="." unique_id=1651036622 instance=ExtResource("3_8cck5")]
-position = Vector2(735, 1609)
+position = Vector2(-192, 0)

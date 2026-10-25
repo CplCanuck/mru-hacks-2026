@@ -16,7 +16,7 @@ func disable_bush():
 			n.disable_thorn()
 
 func shoot_unlock_particles(pos: Vector2) -> void:
-	unlock_particles.position = pos
+	unlock_particles.position = pos - global_position
 	
 	var distance: float = unlock_particles.position.distance_to(end_point.position)
 	var direction: Vector2 = (end_point.position - unlock_particles.position).normalized()

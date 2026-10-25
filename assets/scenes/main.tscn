@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://dvghrtpc5mq4p" path="res://assets/scenes/main_camera_2d.gd" id="1_sfrgt"]
 [ext_resource type="PackedScene" uid="uid://bqhjiiceuhlyx" path="res://assets/objects/player.tscn" id="3_sfrgt"]
 [ext_resource type="PackedScene" uid="uid://s6wkv24u7q37" path="res://assets/objects/shrine.tscn" id="5_etxf0"]
-[ext_resource type="PackedScene" uid="uid://gtc7hb5opfr2" path="res://assets/objects/thorn_bush.tscn" id="5_vesw4"]
+[ext_resource type="Script" uid="uid://ct0ad5jr5ep0d" path="res://assets/objects/thorn_bush.gd" id="5_xplbd"]
+[ext_resource type="Texture2D" uid="uid://c7ifwv6s0lity" path="res://assets/sprites/particle-square.png" id="6_6rsl6"]
+[ext_resource type="PackedScene" uid="uid://cfiknwojgqbo0" path="res://assets/objects/thorns.tscn" id="7_p5d64"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dfgan"]
 texture = ExtResource("1_kpi06")
@@ -19,6 +21,13 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/6 = SubResource("TileSetAtlasSource_dfgan")
+
+[sub_resource type="Gradient" id="Gradient_p5d64"]
+offsets = PackedFloat32Array(0, 0.52469134, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_xplbd"]
+colors = PackedColorArray(0.31764707, 1, 0, 1, 0.15294118, 0.7607843, 0.54901963, 1)
 
 [node name="main" type="Node2D" unique_id=1006457170]
 y_sort_enabled = true
@@ -39,4 +48,43 @@ position = Vector2(303, 272)
 [node name="Shrine" parent="." unique_id=35282369 instance=ExtResource("5_etxf0")]
 position = Vector2(550, 1300)
 
-[node name="Thorns1" parent="." unique_id=1597888591 instance=ExtResource("5_vesw4")]
+[node name="Thorn Bush1" type="Node2D" parent="." unique_id=1597888591]
+z_index = 1
+position = Vector2(544, 1632)
+script = ExtResource("5_xplbd")
+
+[node name="Unlock Particles" type="CPUParticles2D" parent="Thorn Bush1" unique_id=1624980542]
+emitting = false
+amount = 30
+texture = ExtResource("6_6rsl6")
+lifetime = 2.0
+one_shot = true
+spread = 1.0
+gravity = Vector2(0, 0)
+color_ramp = SubResource("Gradient_p5d64")
+color_initial_ramp = SubResource("Gradient_xplbd")
+metadata/_edit_lock_ = true
+
+[node name="EndPoint" type="Marker2D" parent="Thorn Bush1/Unlock Particles" unique_id=131124395]
+
+[node name="Thorns" parent="Thorn Bush1" unique_id=699148790 instance=ExtResource("7_p5d64")]
+
+[node name="Thorns2" parent="Thorn Bush1" unique_id=1503129771 instance=ExtResource("7_p5d64")]
+position = Vector2(64, 0)
+
+[node name="Thorns3" parent="Thorn Bush1" unique_id=1601616270 instance=ExtResource("7_p5d64")]
+position = Vector2(128, 0)
+
+[node name="Thorns4" parent="Thorn Bush1" unique_id=430986737 instance=ExtResource("7_p5d64")]
+position = Vector2(192, 0)
+
+[node name="Thorns5" parent="Thorn Bush1" unique_id=407878412 instance=ExtResource("7_p5d64")]
+position = Vector2(-64, 0)
+
+[node name="Thorns6" parent="Thorn Bush1" unique_id=1366380515 instance=ExtResource("7_p5d64")]
+position = Vector2(-128, 0)
+
+[node name="Thorns7" parent="Thorn Bush1" unique_id=1651036622 instance=ExtResource("7_p5d64")]
+position = Vector2(-192, 0)
+
+[connection signal="_on_shrine_success" from="Shrine" to="Thorn Bush1" method="_on_shrine_success"]
