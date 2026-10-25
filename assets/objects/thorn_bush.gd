@@ -2,13 +2,14 @@ extends Node2D
 
 @onready var unlock_particles: CPUParticles2D = $"Unlock Particles"
 @onready var end_point: Marker2D = $"Unlock Particles/EndPoint"
+@onready var rotation_point: Marker2D = $"Rotation Point"
 
 var thorns := []
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	thorns = get_children()
+	thorns = rotation_point.get_children()
 
 func disable_bush():
 	for n in thorns:
