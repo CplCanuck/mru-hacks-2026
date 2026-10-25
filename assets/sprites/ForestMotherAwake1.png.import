@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://63g33aa5jrbd"
-path="res://.godot/imported/ForestMotherSleep.png-17b0230ea84b98c6e7f394c2f838ca9b.ctex"
+uid="uid://dvbb0bsmc8k1e"
+path="res://.godot/imported/ForestMotherAwake1.png-2f5d7665d3f296543ab5d294a1a67757.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ForestMotherSleep.png"
-dest_files=["res://.godot/imported/ForestMotherSleep.png-17b0230ea84b98c6e7f394c2f838ca9b.ctex"]
+source_file="res://assets/sprites/ForestMotherAwake1.png"
+dest_files=["res://.godot/imported/ForestMotherAwake1.png-2f5d7665d3f296543ab5d294a1a67757.ctex"]
 
 [params]
 

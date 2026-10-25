@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyhmd5jvjb53h"
-path="res://.godot/imported/PlayerBark.png-b886b5d69946c1cf46f70056d52b6def.ctex"
+uid="uid://einj7fe75wmh"
+path="res://.godot/imported/PlayerBark1.png-9a5fd774b45638433a3a85f2448911fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/PlayerBark.png"
-dest_files=["res://.godot/imported/PlayerBark.png-b886b5d69946c1cf46f70056d52b6def.ctex"]
+source_file="res://assets/sprites/PlayerBark1.png"
+dest_files=["res://.godot/imported/PlayerBark1.png-9a5fd774b45638433a3a85f2448911fe.ctex"]
 
 [params]
 
