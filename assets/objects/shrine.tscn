@@ -3,9 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://vcfmna6nsw54" path="res://assets/sprites/Shrine.png" id="1_rtksp"]
 [ext_resource type="Script" uid="uid://fq7sqe38xi5c" path="res://assets/objects/shrine.gd" id="1_v7yc1"]
 [ext_resource type="Texture2D" uid="uid://vwnb4pxhncoe" path="res://assets/sprites/interact-circle.png" id="3_505vx"]
+[ext_resource type="Texture2D" uid="uid://c7ifwv6s0lity" path="res://assets/sprites/particle-square.png" id="4_stjl5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bi8p6"]
 radius = 50.0
+
+[sub_resource type="Gradient" id="Gradient_g8u1f"]
+colors = PackedColorArray(0.31666672, 1, 0, 1, 0.152, 0.76, 0.5472, 1)
 
 [node name="Shrine" type="Node2D" unique_id=35282369]
 script = ExtResource("1_v7yc1")
@@ -48,6 +52,24 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Press
 \"F\""
 horizontal_alignment = 1
+
+[node name="HurrayParticles" type="CPUParticles2D" parent="." unique_id=1597166170]
+position = Vector2(0, -120)
+emitting = false
+amount = 50
+texture = ExtResource("4_stjl5")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -1)
+gravity = Vector2(0, 400)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+scale_amount_min = 1.5
+scale_amount_max = 2.0
+color_initial_ramp = SubResource("Gradient_g8u1f")
 
 [connection signal="body_entered" from="Interact Area" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="Interact Area" to="." method="_on_interact_area_body_exited"]
