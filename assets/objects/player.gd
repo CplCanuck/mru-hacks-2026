@@ -20,12 +20,19 @@ extends CharacterBody2D
 
 var is_stunned : bool = false
 var is_invincible : bool = false
+var is_god_mode : bool = false
 
 
 
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("Demo God Mode"):
+		if is_god_mode:
+			is_god_mode = false
+		else:
+			is_god_mode = true
+	
 	# Change out for enemy hit once we have enemies
-	if Input.is_action_just_pressed("test"):
+	if Input.is_action_just_pressed("test") && !is_god_mode:
 		handle_damage(global_position.direction_to(get_global_mouse_position()).normalized())
 	
 	if is_invincible:
