@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dxadglr5jl0qk" path="res://assets/sprites/ProgressBar.png" id="4_6r1sy"]
 [ext_resource type="Script" uid="uid://dt36wd4ti631g" path="res://assets/objects/progress_bar.gd" id="4_jssbp"]
 [ext_resource type="Texture2D" uid="uid://cuqnj1f3ys8s5" path="res://assets/sprites/PlayerBark2.png" id="4_xvjlw"]
+[ext_resource type="AudioStream" uid="uid://t08i8mdw1i5m" path="res://assets/sfx/bark.wav" id="8_fh75e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bi8p6"]
 radius = 70.0
@@ -267,6 +268,10 @@ shape = SubResource("CircleShape2D_1yt0f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1995936352]
 libraries/ = SubResource("AnimationLibrary_xvjlw")
+
+[node name="BarkSFX" type="AudioStreamPlayer2D" parent="." unique_id=1354514937]
+stream = ExtResource("8_fh75e")
+bus = &"Sfx"
 
 [connection signal="timeout" from="Attack Cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="Invincibility Timer" to="." method="_on_invincibility_timer_timeout"]

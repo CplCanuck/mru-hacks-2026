@@ -80,6 +80,7 @@ func handle_attack_click():
 		# trigger attack animation
 		bark_animation.visible = true
 		bark_animation.play("bark")
+		$BarkSFX.play()
 		
 		# trigger attack hitbox (currently turned off in timer time out)
 		bark_collider.disabled = false

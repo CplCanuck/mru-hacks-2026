@@ -20,6 +20,16 @@ region = Rect2(96, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xrivr"]
 animations = [{
+"frames": [],
+"loop": 1,
+"name": &"bear",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"deer",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_x0bx7")
@@ -48,7 +58,7 @@ texture = SubResource("NoiseTexture2D_xrivr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=852237924]
 sprite_frames = SubResource("SpriteFrames_xrivr")
-animation = &"vine"
+animation = &"bear"
 
 [node name="CollectBox" type="Area2D" parent="." unique_id=232358134]
 collision_layer = 0

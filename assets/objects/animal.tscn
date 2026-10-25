@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://bdryjmjc77qsf"]
+
+[ext_resource type="Texture2D" uid="uid://biqhei3lct253" path="res://assets/sprites/DeerSleep1.png" id="1_yto4a"]
+[ext_resource type="Texture2D" uid="uid://cxvfwn1scs667" path="res://assets/sprites/DeerSleep2.png" id="2_awalw"]
+[ext_resource type="Texture2D" uid="uid://chhn35sgrsohj" path="res://assets/sprites/DeerSleep3.png" id="3_aojcy"]
+[ext_resource type="Texture2D" uid="uid://dguy5e47daa6p" path="res://assets/sprites/DeerSleep4.png" id="4_xbam4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv7ca"]
+atlas = ExtResource("1_yto4a")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73qgp"]
+atlas = ExtResource("2_awalw")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox58x"]
+atlas = ExtResource("3_aojcy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hefyg"]
+atlas = ExtResource("4_xbam4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrivr"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"b_idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"b_revitalized",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"b_tired",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"d_idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"d_revitalized",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv7ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73qgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox58x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hefyg")
+}],
+"loop": 1,
+"name": &"d_tired",
+"speed": 5.0
+}]
+
+[node name="animal" type="Node2D" unique_id=592215360]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1210777558]
+sprite_frames = SubResource("SpriteFrames_xrivr")
+animation = &"b_idle"
+autoplay = "d_tired"
