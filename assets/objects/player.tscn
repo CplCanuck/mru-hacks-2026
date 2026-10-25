@@ -209,6 +209,15 @@ _data = {
 &"waddle": SubResource("Animation_nqkij")
 }
 
+[sub_resource type="Gradient" id="Gradient_lvyht"]
+offsets = PackedFloat32Array(0, 0.33687943, 0.677305)
+colors = PackedColorArray(1, 1, 1, 1, 0.408377, 0.408377, 0.408377, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xrivr"]
+gradient = SubResource("Gradient_lvyht")
+fill = 1
+fill_from = Vector2(0.49095023, 0.51809955)
+
 [node name="player" type="CharacterBody2D" unique_id=1106833625 groups=["Player"]]
 collision_layer = 9
 script = ExtResource("1_5pvfp")
@@ -282,6 +291,16 @@ bus = &"Sfx"
 
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="." unique_id=1080388128]
 stream = ExtResource("9_bkysh")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1159027911]
+scale = Vector2(10, 10)
+color = Color(0, 1, 1, 0.49411765)
+energy = 2.0
+shadow_enabled = true
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_xrivr")
+offset = Vector2(4, 0)
+texture_scale = 2.0
 
 [connection signal="timeout" from="Attack Cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="Invincibility Timer" to="." method="_on_invincibility_timer_timeout"]

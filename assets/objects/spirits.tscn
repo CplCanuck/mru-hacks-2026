@@ -125,7 +125,7 @@ texture = SubResource("NoiseTexture2D_xrivr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=852237924]
 sprite_frames = SubResource("SpriteFrames_xrivr")
 animation = &"vine"
-frame_progress = 0.3113973
+frame_progress = 0.77114236
 
 [node name="CollectBox" type="Area2D" parent="." unique_id=232358134]
 collision_layer = 0

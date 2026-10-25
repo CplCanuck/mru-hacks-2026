@@ -115,7 +115,7 @@ animations = [{
 
 [node name="animal" type="Area2D" unique_id=1251309495]
 collision_layer = 0
-collision_mask = 8
+collision_mask = 9
 script = ExtResource("1_t2kft")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1210777558]
@@ -127,3 +127,5 @@ autoplay = "d_tired"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1909227326]
 scale = Vector2(8.229618, 5.2146225)
 shape = SubResource("CircleShape2D_tem33")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

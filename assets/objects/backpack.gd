@@ -26,21 +26,24 @@ func _process(delta):
 		$Control/MarginContainer/HBoxContainer/VBoxContainer4.visible = false
 
 func add_vine_soul():
+	print("Add vine")
 	vine_souls += 1
 	vine_label.text = "" + str(vine_souls)
 
 func add_pine_soul():
+	print("Add pine")
 	pine_souls += 1
 	pine_label.text = "" + str(pine_souls)
 
 func sub_vine_soul():
+	print("Sub vine")
 	vine_souls -= 1
 	vine_label.text = "" + str(vine_souls)
 
 func sub_pine_soul():
+	print("Sub pine")
 	pine_souls -= 1
 	pine_label.text = "" + str(pine_souls)
-
 
 func _input(event):
 	if event.is_action_pressed("reset"):

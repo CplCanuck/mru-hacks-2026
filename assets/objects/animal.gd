@@ -25,14 +25,17 @@ func _ready():
 		tired_s = "b_tired"
 		revit_s = "b_revitalized" 
 		idle_s = "b_idle"
+	$AnimatedSprite2D.play(tired_s)
 	pass
 
 func _on_body_entered(body):
+	print("Body entered")
 	match cur:
 		state.TIRED:
 			match animal:
 				type.DEER:
 					if Backpack.has_deer_soul:
+						print("Yes deer soul")
 						make_live()
 					else:
 						print("No deer soul")

@@ -104,6 +104,7 @@ func setup_cur_state():
 				sprite.play(corrupt_sprite)
 			pass
 		states.REVITALIZED:
+			$PointLight2D.visible = true
 			pass
 		states.DEFEATED:
 			pass

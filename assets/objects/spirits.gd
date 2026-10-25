@@ -56,13 +56,18 @@ func _physics_process(delta):
 	pass
 	
 func collect():
+	print(soul_type)
 	if soul_type == type.VINE:
+		print("Vine")
 		Backpack.add_vine_soul()
-	if soul_type == type.PINE:
+	elif soul_type == type.PINE:
+		print("Pine")
 		Backpack.add_pine_soul()
-	if soul_type == type.BEAR:
+	elif soul_type == type.BEAR:
+		print("Bear")
 		Backpack.has_bear_soul = true
-	if soul_type == type.DEER:
+	elif soul_type == type.DEER:
+		print("Deer")
 		Backpack.has_deer_soul = true
 	pass
 
@@ -82,8 +87,5 @@ func _on_player_near_box_body_exited(body):
 
 
 func _on_collect_box_body_entered(body):
-	if soul_type == type.PINE:
-		Backpack.add_pine_soul()
-	if soul_type == type.VINE:
-		Backpack.add_vine_soul()
+	collect()
 	queue_free()
