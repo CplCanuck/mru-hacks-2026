@@ -76,12 +76,12 @@ func get_all_descendants(node: Node) -> Array:
 	return result
 
 
-func _on_shrine__on_shrine_success(position: Vector2) -> void:
+func _on_shrine__on_shrine_success(_position: Vector2) -> void:
 	print("DEBUG: step 3 triggered")
 	fade_in_layer(main_step_3)
 
 
-func _on_shrine_1__on_shrine_success(position: Vector2) -> void:
+func _on_shrine_1__on_shrine_success(_position: Vector2) -> void:
 	print("DEBUG: step 2 triggered")
 	fade_in_layer(main_step_2)
 

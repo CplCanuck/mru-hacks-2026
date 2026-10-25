@@ -33,6 +33,7 @@ theme_override_constants/margin_right = 14
 theme_override_constants/margin_bottom = 14
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=627168873]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
