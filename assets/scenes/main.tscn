@@ -343,9 +343,104 @@ position = Vector2(345.99994, -1587)
 [node name="Thorns13" parent="Thorns1/Rotation Point" unique_id=13617110 instance=ExtResource("7_p5d64")]
 position = Vector2(570, -560)
 
-[node name="EnemyTree" parent="." unique_id=1938661581 instance=ExtResource("8_6rsl6")]
-position = Vector2(661, -23)
-cur_type = 0
+[node name="Thorns14" parent="Thorns1/Rotation Point" unique_id=1118178937 instance=ExtResource("7_p5d64")]
+position = Vector2(708, -256)
+
+[node name="Thorns15" parent="Thorns1/Rotation Point" unique_id=731232318 instance=ExtResource("7_p5d64")]
+position = Vector2(763, -327.00003)
+
+[node name="Thorns16" parent="Thorns1/Rotation Point" unique_id=676478388 instance=ExtResource("7_p5d64")]
+position = Vector2(509, -130.00002)
+
+[node name="Thorns17" parent="Thorns1/Rotation Point" unique_id=2003562981 instance=ExtResource("7_p5d64")]
+position = Vector2(-504, -127.99997)
+
+[node name="Thorns18" parent="Thorns1/Rotation Point" unique_id=1220213128 instance=ExtResource("7_p5d64")]
+position = Vector2(-380, -75.99997)
+
+[node name="Thorns19" parent="Thorns1/Rotation Point" unique_id=464304330 instance=ExtResource("7_p5d64")]
+position = Vector2(-321, -68.99997)
+
+[node name="Thorns20" parent="Thorns1/Rotation Point" unique_id=2080224404 instance=ExtResource("7_p5d64")]
+position = Vector2(-692, -261.99994)
+
+[node name="Thorns21" parent="Thorns1/Rotation Point" unique_id=537705986 instance=ExtResource("7_p5d64")]
+position = Vector2(-773, -333.99997)
+
+[node name="Thorns22" parent="Thorns1/Rotation Point" unique_id=1750269282 instance=ExtResource("7_p5d64")]
+position = Vector2(-887, -524)
+
+[node name="Thorns23" parent="Thorns1/Rotation Point" unique_id=531466034 instance=ExtResource("7_p5d64")]
+position = Vector2(-1023, -835.99994)
+
+[node name="Thorns24" parent="Thorns1/Rotation Point" unique_id=56586212 instance=ExtResource("7_p5d64")]
+position = Vector2(-1023.00006, -897.99994)
+
+[node name="Thorns25" parent="Thorns1/Rotation Point" unique_id=755550091 instance=ExtResource("7_p5d64")]
+position = Vector2(-1023.00006, -1209)
+
+[node name="Thorns26" parent="Thorns1/Rotation Point" unique_id=2035169176 instance=ExtResource("7_p5d64")]
+position = Vector2(-892.00006, -1530)
+
+[node name="Thorns27" parent="Thorns1/Rotation Point" unique_id=267555510 instance=ExtResource("7_p5d64")]
+position = Vector2(-954.00006, -1409)
+
+[node name="Thorns28" parent="Thorns1/Rotation Point" unique_id=1159666055 instance=ExtResource("7_p5d64")]
+position = Vector2(-771.00006, -1735)
+
+[node name="Thorns29" parent="Thorns1/Rotation Point" unique_id=54585599 instance=ExtResource("7_p5d64")]
+position = Vector2(-705.00006, -1795)
+
+[node name="Thorns30" parent="Thorns1/Rotation Point" unique_id=1600136009 instance=ExtResource("7_p5d64")]
+position = Vector2(-379.00006, -1990)
+
+[node name="Thorns31" parent="Thorns1/Rotation Point" unique_id=1854425631 instance=ExtResource("7_p5d64")]
+position = Vector2(-191.00009, -2040)
+
+[node name="Thorns32" parent="Thorns1/Rotation Point" unique_id=787816662 instance=ExtResource("7_p5d64")]
+position = Vector2(184.99991, -2047)
+
+[node name="Thorns33" parent="Thorns1/Rotation Point" unique_id=1859794753 instance=ExtResource("7_p5d64")]
+position = Vector2(120.99991, -2049)
+
+[node name="Thorns34" parent="Thorns1/Rotation Point" unique_id=870432592 instance=ExtResource("7_p5d64")]
+position = Vector2(374.9999, -1982)
+
+[node name="Thorns35" parent="Thorns1/Rotation Point" unique_id=181878473 instance=ExtResource("7_p5d64")]
+position = Vector2(509.9999, -1916)
+
+[node name="Thorns36" parent="Thorns1/Rotation Point" unique_id=65897733 instance=ExtResource("7_p5d64")]
+position = Vector2(704.9999, -1795)
+
+[node name="Thorns37" parent="Thorns1/Rotation Point" unique_id=231359894 instance=ExtResource("7_p5d64")]
+position = Vector2(773.9999, -1726)
+
+[node name="Thorns38" parent="Thorns1/Rotation Point" unique_id=24488894 instance=ExtResource("7_p5d64")]
+position = Vector2(892.9999, -1536)
+
+[node name="Thorns39" parent="Thorns1/Rotation Point" unique_id=1736258010 instance=ExtResource("7_p5d64")]
+position = Vector2(897.9999, -1472)
+
+[node name="Thorns40" parent="Thorns1/Rotation Point" unique_id=314136637 instance=ExtResource("7_p5d64")]
+position = Vector2(952.9999, -1413)
+
+[node name="Thorns41" parent="Thorns1/Rotation Point" unique_id=1680195500 instance=ExtResource("7_p5d64")]
+position = Vector2(961.99994, -643)
+
+[node name="Thorns42" parent="Thorns1/Rotation Point" unique_id=559057270 instance=ExtResource("7_p5d64")]
+position = Vector2(894.99994, -526.00006)
+
+[node name="Thorns43" parent="Thorns1/Rotation Point" unique_id=2027149287 instance=ExtResource("7_p5d64")]
+position = Vector2(804.99994, -531.00006)
+
+[node name="Thorns44" parent="Thorns1/Rotation Point" unique_id=1199948653 instance=ExtResource("7_p5d64")]
+position = Vector2(835.99994, -469.00006)
+
+[node name="Thorns45" parent="Thorns1/Rotation Point" unique_id=565658465 instance=ExtResource("7_p5d64")]
+position = Vector2(781.99994, -441.00003)
+
+[node name="Thorns46" parent="Thorns1/Rotation Point" unique_id=790255459 instance=ExtResource("7_p5d64")]
+position = Vector2(715.99994, -405.00003)
 
 [node name="Win Room Label" type="Label" parent="." unique_id=334183200]
 offset_top = 3840.0
@@ -380,6 +475,10 @@ shadow_filter_smooth = 3.0
 texture = SubResource("GradientTexture2D_ytb86")
 offset = Vector2(4, 0)
 texture_scale = 2.0
+
+[node name="EnemyTree" parent="." unique_id=1938661581 instance=ExtResource("8_6rsl6")]
+position = Vector2(661, -23)
+cur_type = 0
 
 [node name="EnemyTree2" parent="." unique_id=868746619 instance=ExtResource("8_6rsl6")]
 position = Vector2(1191, 353)
