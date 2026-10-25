@@ -15,11 +15,22 @@ run/main_scene="uid://xgw3nbd5fwh3"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MusicManager="*uid://dclwv5jnsb230"
+Backpack="*uid://cnutxthf62ay8"
+
 [display]
 
 window/size/viewport_width=2560
 window/size/viewport_height=1440
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[gui]
+
+theme/default_font_antialiasing=0
+theme/custom_font="uid://dhs4r5kufi1rd"
 
 [input]
 

@@ -37,6 +37,11 @@ animations = [{
 "name": &"needle_r",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": 1,
+"name": &"needle_w",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_g0gdf")
@@ -51,6 +56,11 @@ animations = [{
 }],
 "loop": 1,
 "name": &"vine_r",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"vine_w",
 "speed": 5.0
 }]
 
@@ -166,11 +176,10 @@ scale = Vector2(0.121638894, 0.119483635)
 shape = SubResource("CircleShape2D_xrivr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=91359739]
-modulate = Color(0.459, 0, 0.69, 1)
 position = Vector2(0, -40)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_xrivr")
-animation = &"attacking"
+animation = &"needle_c"
 autoplay = "needle_c"
 
 [node name="Label" type="Label" parent="." unique_id=1953349695]

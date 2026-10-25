@@ -3,6 +3,7 @@ extends Node2D
 var corrupted_color := Color(0.459, 0.0, 0.69, 1.0)
 var revitalized_color := Color(1.0, 1.0, 1.0, 1.0)
 var player
+const SOUL = preload("res://assets/objects/spirits.tscn")
 
 enum tree_type {
 	NEEDLES_C,
@@ -27,6 +28,7 @@ var length_of_vine_atk = 3.0
 
 @export var cur_type = tree_type.VINES_C
 var corrupt_sprite = "needle_c"
+var wither_sprite = "needle_c"
 var revitalize_sprite = "needle_c"
 
 @export var atk_cooldown_max = 3;
@@ -50,10 +52,12 @@ func _ready():
 	match cur_type:
 		tree_type.NEEDLES_C:
 			corrupt_sprite = "needle_c"
+			wither_sprite = "vine_w"
 			revitalize_sprite = "vine_r"
 			pass
 		tree_type.VINES_C:
 			corrupt_sprite = "vine_c"
+			wither_sprite = "needle_w"
 			revitalize_sprite = "needle_c"
 			pass
 		tree_type.VINES_R:
@@ -73,12 +77,12 @@ func _process(delta):
 	if setuped_state != current_state:
 		await setup_cur_state()
 		
-	if atk_cooldown > 0:
-		atk_cooldown -= speed * delta
-	elif atk_cooldown <= 0:
-		if player_in_range:
-			start_atk()
-		
+	if current_state == states.IDLE || current_state == states.CORRUPTED:
+		if atk_cooldown > 0:
+			atk_cooldown -= speed * delta
+		elif atk_cooldown <= 0:
+			if player_in_range:
+				start_atk()
 	pass
 
 func setup_cur_state():
@@ -98,6 +102,7 @@ func setup_cur_state():
 			if sprite.animation != corrupt_sprite:
 				sprite.play(corrupt_sprite)
 			pass
+			"""
 		states.ATTACKING:
 			if sprite.animation != corrupt_sprite:
 				sprite.play(corrupt_sprite)
@@ -113,6 +118,7 @@ func setup_cur_state():
 				sprite.play(corrupt_sprite)
 				sprite.modulate = Color(0.093, 0.014, 0.133, 1.0)
 			pass
+		"""
 		_:
 			print("Invalid enemy state.")
 			pass
@@ -125,7 +131,6 @@ func spawn_warning():
 		var tween = create_tween()
 		tween.tween_property($Warning, "scale", Vector2($Warning.scale.x,length_of_vine_atk), 1
 			).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-
 		
 		var direction: Vector2 = player.global_position - global_position
 		var player_angle: float = direction.angle() + deg_to_rad(-90)
@@ -220,8 +225,23 @@ func _on_duration_timeout():
 	$BulletSpawnPoint/BlastTimer.stop()
 	pass
 
-
 func _on_body_area_entered(_area: Area2D) -> void:
-	# This should really all be replaced with actually doing it instead of faking it
-	$AnimatedSprite2D.play("needle_r") #swap sprite
-	$AnimatedSprite2D.modulate = Color(1.0, 1.0, 1.0, 1.0)
+	if current_state == states.IDLE:
+		current_state = states.DEFEATED
+		sprite.play(wither_sprite)
+		var new_soul = SOUL.instantiate()
+		get_tree().current_scene.add_child(new_soul)
+		new_soul.global_position = global_position 
+		sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
+	elif current_state == states.DEFEATED:
+		if cur_type == tree_type.NEEDLES_C: # should be vines
+			if Backpack.vine_souls > 0:
+				Backpack.sub_vine_soul()
+				current_state = states.REVITALIZED
+		elif cur_type == tree_type.VINES_C: # should be pines
+			if Backpack.pine_souls > 0:
+				Backpack.sub_pine_soul()
+				current_state = states.REVITALIZED
+			pass
+		pass
+	pass
