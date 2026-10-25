@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://cfiknwojgqbo0" path="res://assets/objects/thorns.tscn" id="7_p5d64"]
 [ext_resource type="PackedScene" uid="uid://buyehsgtm576j" path="res://assets/objects/enemy_tree.tscn" id="8_6rsl6"]
 [ext_resource type="PackedScene" uid="uid://b6msd4q1xiwba" path="res://assets/objects/spirits.tscn" id="9_p5d64"]
+[ext_resource type="Texture2D" uid="uid://14shwgyv3u5c" path="res://assets/sprites/ForestMotherAwake2.png" id="12_ahyqc"]
+[ext_resource type="Script" uid="uid://00865uk73uwk" path="res://assets/scenes/animated_sprite_2d.gd" id="13_t7a27"]
 [ext_resource type="PackedScene" uid="uid://bdryjmjc77qsf" path="res://assets/objects/animal.tscn" id="13_ytb86"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_774ty"]
@@ -40,6 +42,20 @@ colors = PackedColorArray(0.31764707, 1, 0, 1, 0.15294118, 0.7607843, 0.54901963
 
 [sub_resource type="Gradient" id="Gradient_48cn3"]
 colors = PackedColorArray(0.31764707, 1, 0, 1, 0.15294118, 0.7607843, 0.54901963, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_774ty"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_p5d64")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ahyqc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Gradient" id="Gradient_lvyht"]
 offsets = PackedFloat32Array(0, 0.33687943, 0.677305)
@@ -223,7 +239,12 @@ metadata/_edit_use_anchors_ = true
 self_modulate = Color(0.68, 0.68, 0.68, 1)
 position = Vector2(550, 3520)
 scale = Vector2(4, 4)
-texture = ExtResource("4_p5d64")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ForestMotherAwake" unique_id=231408210]
+sprite_frames = SubResource("SpriteFrames_774ty")
+frame = 1
+frame_progress = 0.5141059
+script = ExtResource("13_t7a27")
 
 [node name="PointLight2D" type="PointLight2D" parent="ForestMotherAwake" unique_id=1715843694]
 scale = Vector2(10, 10)
