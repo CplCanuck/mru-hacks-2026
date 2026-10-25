@@ -1,12 +1,21 @@
 [gd_scene format=3 uid="uid://cw45ww5m3advm"]
 
 [ext_resource type="PackedScene" uid="uid://bqhjiiceuhlyx" path="res://assets/objects/player.tscn" id="1_fyj2j"]
-[ext_resource type="PackedScene" uid="uid://cj6xy7mulabb6" path="res://assets/objects/enemy.tscn" id="2_2xtgk"]
+[ext_resource type="PackedScene" uid="uid://buyehsgtm576j" path="res://assets/objects/enemy_tree.tscn" id="2_fyj2j"]
+[ext_resource type="Script" uid="uid://dqfkqp1ime3bh" path="res://assets/scenes/treetestlabel.gd" id="3_2xtgk"]
 
 [node name="Player Test" type="Node" unique_id=459761813]
 
 [node name="player" parent="." unique_id=1106833625 instance=ExtResource("1_fyj2j")]
 position = Vector2(320, 331)
 
-[node name="enemy" parent="." unique_id=1492192340 instance=ExtResource("2_2xtgk")]
-position = Vector2(804, 427)
+[node name="EnemyTree" parent="." unique_id=1938661581 instance=ExtResource("2_fyj2j")]
+position = Vector2(882, 405)
+
+[node name="Label" type="Label" parent="." unique_id=1492508145]
+offset_left = 873.0
+offset_top = 164.0
+offset_right = 913.0
+offset_bottom = 231.0
+theme_override_font_sizes/font_size = 48
+script = ExtResource("3_2xtgk")

@@ -188,15 +188,6 @@ _data = {
 &"attacking": SubResource("Animation_jq2sp")
 }
 
-[sub_resource type="Gradient" id="Gradient_ihflt"]
-offsets = PackedFloat32Array(0, 0.33687943, 0.677305)
-colors = PackedColorArray(1, 1, 1, 1, 0.408377, 0.408377, 0.408377, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_avsly"]
-gradient = SubResource("Gradient_ihflt")
-fill = 1
-fill_from = Vector2(0.49095023, 0.51809955)
-
 [node name="EnemyTree" type="Node2D" unique_id=1938661581]
 modulate = Color(0.7173962, 0.6647915, 0.81904954, 1)
 scale = Vector2(2, 2)
@@ -223,9 +214,8 @@ self_modulate = Color(0.65, 0.65, 0.65, 1)
 position = Vector2(0, -40)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_xrivr")
-animation = &"vine_w"
+animation = &"vine_r"
 autoplay = "needle_c"
-frame_progress = 0.24238986
 
 [node name="Label" type="Label" parent="." unique_id=1953349695]
 visible = false
@@ -279,18 +269,6 @@ shape = SubResource("RectangleShape2D_8na7t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=457215631]
 libraries/ = SubResource("AnimationLibrary_8na7t")
-
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=744983798]
-visible = false
-scale = Vector2(10, 10)
-color = Color(0, 1, 0.29999995, 0.34509805)
-energy = 2.0
-shadow_enabled = true
-shadow_filter = 2
-shadow_filter_smooth = 25.8
-texture = SubResource("GradientTexture2D_avsly")
-offset = Vector2(4, 0)
-texture_scale = 2.0
 
 [connection signal="area_entered" from="Body" to="." method="_on_body_area_entered"]
 [connection signal="body_entered" from="HitRange" to="." method="_on_hit_range_body_entered"]

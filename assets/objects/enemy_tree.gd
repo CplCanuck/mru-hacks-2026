@@ -58,7 +58,7 @@ func _ready():
 		tree_type.VINES_C:
 			corrupt_sprite = "vine_c"
 			wither_sprite = "needle_w"
-			revitalize_sprite = "needle_c"
+			revitalize_sprite = "needle_r"
 			pass
 		tree_type.VINES_R:
 			print("Trees shouldn't start in revitalized state")
@@ -66,7 +66,7 @@ func _ready():
 		tree_type.NEEDLES_R:
 			print("Trees shouldn't start in revitalized state")
 			pass
-		_: 
+		_:
 			print("Invalid start state for tree")
 			
 	pass
@@ -77,7 +77,7 @@ func _process(delta):
 	if setuped_state != current_state:
 		await setup_cur_state()
 		
-	if current_state == states.IDLE || current_state == states.CORRUPTED:
+	if current_state == states.IDLE:
 		if atk_cooldown > 0:
 			atk_cooldown -= speed * delta
 		elif atk_cooldown <= 0:
@@ -104,7 +104,14 @@ func setup_cur_state():
 				sprite.play(corrupt_sprite)
 			pass
 		states.REVITALIZED:
-			$PointLight2D.visible = true
+			sprite.play(revitalize_sprite)
+			
+			sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
+			
+			if cur_type == tree_type.NEEDLES_C:
+				cur_type = tree_type.NEEDLES_R
+			elif cur_type == tree_type.VINES_C:
+				cur_type = tree_type.VINES_R
 			pass
 		states.DEFEATED:
 			pass
@@ -181,7 +188,6 @@ func spawn_atk():
 
 func end_atk():
 	#print("Ending atk")
-	current_state = states.IDLE
 	if cur_type == tree_type.VINES_C:
 		#print("Ending visable")
 		$Warning/VineAttack2.visible = false
@@ -219,21 +225,23 @@ func _on_body_area_entered(_area: Area2D) -> void:
 		sprite.play(wither_sprite)
 		var new_soul = SOUL.instantiate()
 		get_tree().current_scene.add_child(new_soul)
-		if tree_type.NEEDLES_C || tree_type.VINES_R:
-			new_soul.soul_type = new_soul.type.VINE
-		if tree_type.VINES_C || tree_type.NEEDLES_R:
+		
+		if cur_type == tree_type.NEEDLES_C || cur_type == tree_type.NEEDLES_R:
 			new_soul.soul_type = new_soul.type.PINE
+		elif cur_type == tree_type.VINES_C || cur_type == tree_type.VINES_R:
+			new_soul.soul_type = new_soul.type.VINE
+			
 		new_soul.global_position = global_position 
-		#sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		current_state = states.DEFEATED
+		
 	elif current_state == states.DEFEATED:
-		if cur_type == tree_type.NEEDLES_C: # should be vines
-			if Backpack.vine_souls > 0:
-				Backpack.sub_vine_soul()
-				current_state = states.REVITALIZED
-		elif cur_type == tree_type.VINES_C: # should be pines
+		if cur_type == tree_type.NEEDLES_C: 
 			if Backpack.pine_souls > 0:
 				Backpack.sub_pine_soul()
+				current_state = states.REVITALIZED
+		elif cur_type == tree_type.VINES_C: 
+			if Backpack.vine_souls > 0:
+				Backpack.sub_vine_soul()
 				current_state = states.REVITALIZED
 			pass
 		pass

@@ -35,7 +35,7 @@ func _process(_delta):
 		$AnimatedSprite2D.play("deer")
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player and player_in_range:
 		var distance = global_position.distance_to(player.global_position)
 		distance = distance / max_distance # further away -> 1
@@ -86,6 +86,6 @@ func _on_player_near_box_body_exited(body):
 		print("Spirit range deteched something exiting thats not the player")
 
 
-func _on_collect_box_body_entered(body):
+func _on_collect_box_body_entered(_body):
 	collect()
 	queue_free()

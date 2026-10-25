@@ -1,6 +1,6 @@
 extends Camera2D
 
-@export var camera_speed_mult: float = 0.03
+@export var camera_speed_mult: float = 0.05
 
 @onready var player: CharacterBody2D = $"../player"
 

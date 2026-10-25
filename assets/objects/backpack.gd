@@ -15,7 +15,7 @@ func _ready():
 	#vine_label.add_theme_font_size_override()
 	pass
 
-func _process(delta):
+func _process(_delta):
 	if has_deer_soul == true:
 		$Control/MarginContainer/HBoxContainer/VBoxContainer3.visible = true
 	else:

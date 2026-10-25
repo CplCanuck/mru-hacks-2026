@@ -28,7 +28,7 @@ func _ready():
 	$AnimatedSprite2D.play(tired_s)
 	pass
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	print("Body entered")
 	match cur:
 		state.TIRED:
