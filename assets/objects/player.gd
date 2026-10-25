@@ -69,7 +69,6 @@ func handle_attack_click():
 		
 		# set attack direction
 		attack_pivot.rotation = global_position.direction_to(get_global_mouse_position()).angle()
-		print(attack_pivot.rotation)
 		
 		# change to barking sprite
 		player_sprite.frame = 1
@@ -134,5 +133,4 @@ func _on_bark_animation_animation_finished() -> void:
 	player_sprite.frame = 0
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	print("PLAYER HAS BEEN HIT")
 	handle_damage(area.position)
