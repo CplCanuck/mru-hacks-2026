@@ -37,6 +37,14 @@ enum music_step_type {
 func _ready():
 	music_steps = [main_step_1, main_step_2, main_step_3, main_step_4]
 	start_all_music()
+	await get_tree().create_timer(2.0).timeout
+	fade_in_layer(main_step_1)
+	await get_tree().create_timer(5.0).timeout
+	fade_in_layer(main_step_2)
+	await get_tree().create_timer(5.0).timeout
+	fade_in_layer(main_step_3)
+	await get_tree().create_timer(5.0).timeout
+	fade_in_layer(main_step_4)
 	
 
 func fade_in_layer(step :AudioStreamPlayer):

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dclwv5jnsb230"]
 
 [ext_resource type="Script" uid="uid://qqrgexgw8gyn" path="res://assets/music/music_manager.gd" id="1_6ruce"]
-[ext_resource type="AudioStream" uid="uid://dmx20lsjhe675" path="res://assets/music/music_assets/music_layers/base_layer.mp3" id="2_cnbdk"]
-[ext_resource type="AudioStream" uid="uid://fgrdq4tcm8cc" path="res://assets/music/music_assets/music_layers/deer_layer.mp3" id="3_lyxt8"]
-[ext_resource type="AudioStream" uid="uid://cjwnuypjlvm8a" path="res://assets/music/music_assets/music_layers/bear_layer.mp3" id="4_lyxt8"]
-[ext_resource type="AudioStream" uid="uid://cy75cpkpywums" path="res://assets/music/music_assets/music_layers/final_layer.mp3" id="4_to1ga"]
+[ext_resource type="AudioStream" uid="uid://cmjx8nexls5go" path="res://assets/music/music_assets/music_layers/base.wav" id="2_cnbdk"]
+[ext_resource type="AudioStream" uid="uid://bhpkpaomjbj10" path="res://assets/music/music_assets/music_layers/bear.wav" id="3_lyxt8"]
+[ext_resource type="AudioStream" uid="uid://dr2w270oa456k" path="res://assets/music/music_assets/music_layers/deer.wav" id="4_to1ga"]
+[ext_resource type="AudioStream" uid="uid://uomupyxlyx4c" path="res://assets/music/music_assets/music_layers/final.wav" id="5_ve1ys"]
 
 [node name="MusicManager" type="Node" unique_id=1033291426]
 script = ExtResource("1_6ruce")
@@ -20,11 +20,11 @@ stream = ExtResource("3_lyxt8")
 bus = &"Music"
 
 [node name="MainStep3" type="AudioStreamPlayer" parent="MainMusic" unique_id=318526215]
-stream = ExtResource("4_lyxt8")
+stream = ExtResource("4_to1ga")
 bus = &"Music"
 
 [node name="MainStep4" type="AudioStreamPlayer" parent="MainMusic" unique_id=204859280]
-stream = ExtResource("4_to1ga")
+stream = ExtResource("5_ve1ys")
 bus = &"Music"
 
 [node name="MainStep5" type="AudioStreamPlayer" parent="MainMusic" unique_id=1900951477]
