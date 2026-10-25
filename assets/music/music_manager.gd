@@ -3,7 +3,7 @@ extends Node
 @onready var main_step_2 := $MainMusic/MainStep2
 @onready var main_step_3 := $MainMusic/MainStep3
 @onready var main_step_4 := $MainMusic/MainStep4
-@onready var main_step_5 := $MainMusic/MainStep5
+# @onready var main_step_5 := $MainMusic/MainStep5
 @onready var menu_music := $Menu
 
 var step_intro_time := 4
@@ -19,7 +19,6 @@ enum music_step_type {
 	BASE,
 	DEER,
 	BEAR,
-	FOX,
 	COMPLETE
 }
 
@@ -28,7 +27,7 @@ enum music_step_type {
 ## Set up global steps and starts cutscene music
 ## WIP change to menu
 func _ready():
-	music_steps = [main_step_1, main_step_2, main_step_3, main_step_4, main_step_5]
+	music_steps = [main_step_1, main_step_2, main_step_3, main_step_4]
 	#switch_music(song_type.MENU)
 	start_cutscene_music()
 
@@ -117,12 +116,9 @@ func play_music_step(step: music_step_type):
 		music_step_type.BEAR:
 			await wait_for_song_time(main_step_1, step_intro_time)
 			turn_on_music(main_step_3, main_step_1.get_playback_position())
-		music_step_type.FOX:
-			await wait_for_song_time(main_step_1, step_intro_time)
-			turn_on_music(main_step_4, main_step_1.get_playback_position())
 		music_step_type.COMPLETE:
 			await wait_for_song_time(main_step_1, step_intro_time)
-			turn_on_music(main_step_5, main_step_1.get_playback_position())
+			turn_on_music(main_step_4, main_step_1.get_playback_position())
 		_:
 			print("Can't play invalid music_step_type. Check input in calling function")
 			pass
