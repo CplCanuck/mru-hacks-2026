@@ -24,7 +24,7 @@ enum states {
 var current_state = states.IDLE
 var setuped_state = -1
 var player_in_range := false
-var length_of_vine_atk = 3.0
+var length_of_vine_atk = 8.0
 
 @export var cur_type = tree_type.VINES_C
 var corrupt_sprite = "needle_c"
@@ -86,6 +86,7 @@ func _process(delta):
 	pass
 
 func setup_cur_state():
+	"""
 	if current_state == states.REVITALIZED:
 		sprite.play(revitalize_sprite)
 		var tween = create_tween()
@@ -96,31 +97,18 @@ func setup_cur_state():
 		var tween = create_tween()
 		tween.tween_property(sprite, "modulate", corrupted_color, 5)
 		await tween.finished
-		
+	"""
 	match current_state:
 		states.IDLE:
 			if sprite.animation != corrupt_sprite:
 				sprite.play(corrupt_sprite)
 			pass
-			"""
-		states.ATTACKING:
-			if sprite.animation != corrupt_sprite:
-				sprite.play(corrupt_sprite)
-				sprite.modulate = Color(0.0, 0.0, 1.0, 1.0)
-			pass
-		states.HIT:
-			if sprite.animation != corrupt_sprite:
-				sprite.play(corrupt_sprite)
-				sprite.modulate = Color(1.0, 0.0, 0.0, 1.0)
+		states.REVITALIZED:
 			pass
 		states.DEFEATED:
-			if sprite.animation != corrupt_sprite:
-				sprite.play(corrupt_sprite)
-				sprite.modulate = Color(0.093, 0.014, 0.133, 1.0)
 			pass
-		"""
 		_:
-			print("Invalid enemy state.")
+			print("Invalid enemy state." + str(current_state))
 			pass
 	setuped_state = current_state
 	return
@@ -227,12 +215,12 @@ func _on_duration_timeout():
 
 func _on_body_area_entered(_area: Area2D) -> void:
 	if current_state == states.IDLE:
-		current_state = states.DEFEATED
 		sprite.play(wither_sprite)
 		var new_soul = SOUL.instantiate()
 		get_tree().current_scene.add_child(new_soul)
 		new_soul.global_position = global_position 
-		sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		#sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		current_state = states.DEFEATED
 	elif current_state == states.DEFEATED:
 		if cur_type == tree_type.NEEDLES_C: # should be vines
 			if Backpack.vine_souls > 0:

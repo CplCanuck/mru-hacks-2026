@@ -7,7 +7,8 @@ var travelled_distance = 0
 
 
 func _ready():
-	print("Bullet made")
+	pass
+	#print("Bullet made")
 	##particles.rotation = PI
 	#particles.angle_min = rad_to_deg(rotation)
 	#particles.angle_max = rad_to_deg(rotation)
@@ -24,7 +25,7 @@ func _physics_process(delta):
 
 # checks if the body collided with is player
 func _on_body_entered(body):
-	print(str(self) + "--- Bullet hit")
+	#print(str(self) + "--- Bullet hit")
 	if body.is_in_group('Player'):
 		queue_free()
 	else:

@@ -30,7 +30,7 @@ func turn_on_shooter():
 
 # single
 func _on_single_timer_timeout():
-	print("Single timer timeout")
+	#print("Single timer timeout")
 	var new_needle = NEEDLE.instantiate()
 	get_tree().current_scene.add_child(new_needle)
 	new_needle.global_position = global_position
@@ -42,7 +42,7 @@ func _on_single_timer_timeout():
 
 # blast
 func _on_blast_timer_timeout():
-	print("Blast timer timeout")
+	#print("Blast timer timeout")
 	var amount = 12
 	for i in range(amount):
 		var new_needle = NEEDLE.instantiate()

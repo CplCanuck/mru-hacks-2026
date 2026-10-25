@@ -1,24 +1,25 @@
 [gd_scene format=3 uid="uid://bdryjmjc77qsf"]
 
-[ext_resource type="Texture2D" uid="uid://biqhei3lct253" path="res://assets/sprites/DeerSleep1.png" id="1_yto4a"]
-[ext_resource type="Texture2D" uid="uid://cxvfwn1scs667" path="res://assets/sprites/DeerSleep2.png" id="2_awalw"]
-[ext_resource type="Texture2D" uid="uid://chhn35sgrsohj" path="res://assets/sprites/DeerSleep3.png" id="3_aojcy"]
-[ext_resource type="Texture2D" uid="uid://dguy5e47daa6p" path="res://assets/sprites/DeerSleep4.png" id="4_xbam4"]
+[ext_resource type="Script" uid="uid://bhdlxb8trib6s" path="res://assets/objects/animal.gd" id="1_t2kft"]
+[ext_resource type="Texture2D" uid="uid://biqhei3lct253" path="res://assets/sprites/DeerSleep1.png" id="2_h7s05"]
+[ext_resource type="Texture2D" uid="uid://cxvfwn1scs667" path="res://assets/sprites/DeerSleep2.png" id="3_oi8n7"]
+[ext_resource type="Texture2D" uid="uid://chhn35sgrsohj" path="res://assets/sprites/DeerSleep3.png" id="4_r5xfv"]
+[ext_resource type="Texture2D" uid="uid://dguy5e47daa6p" path="res://assets/sprites/DeerSleep4.png" id="5_6f0n1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mv7ca"]
-atlas = ExtResource("1_yto4a")
+atlas = ExtResource("2_h7s05")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_73qgp"]
-atlas = ExtResource("2_awalw")
+atlas = ExtResource("3_oi8n7")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ox58x"]
-atlas = ExtResource("3_aojcy")
+atlas = ExtResource("4_r5xfv")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hefyg"]
-atlas = ExtResource("4_xbam4")
+atlas = ExtResource("5_6f0n1")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xrivr"]
@@ -66,9 +67,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="animal" type="Node2D" unique_id=592215360]
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
+
+[node name="animal" type="Area2D" unique_id=872947622]
+script = ExtResource("1_t2kft")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1210777558]
 sprite_frames = SubResource("SpriteFrames_xrivr")
 animation = &"b_idle"
 autoplay = "d_tired"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1633852221]
+shape = SubResource("CircleShape2D_xrivr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

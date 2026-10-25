@@ -209,24 +209,31 @@ texture = ExtResource("4_p5d64")
 
 [node name="EnemyTree2" parent="." unique_id=868746619 instance=ExtResource("8_6rsl6")]
 position = Vector2(1191, 353)
+cur_type = 0
 
 [node name="EnemyTree3" parent="." unique_id=2124526008 instance=ExtResource("8_6rsl6")]
 position = Vector2(965, 1075)
 
 [node name="EnemyTree4" parent="." unique_id=1680804718 instance=ExtResource("8_6rsl6")]
 position = Vector2(-91, 965)
+cur_type = 0
 
 [node name="EnemyTree5" parent="." unique_id=1466326557 instance=ExtResource("8_6rsl6")]
 position = Vector2(-2903, 289)
 
 [node name="EnemyTree6" parent="." unique_id=2005814382 instance=ExtResource("8_6rsl6")]
 position = Vector2(-3081, 663)
+cur_type = 0
 
 [node name="EnemyTree7" parent="." unique_id=1650975366 instance=ExtResource("8_6rsl6")]
 position = Vector2(-2273, 948)
 
+[node name="EnemyTree8" parent="." unique_id=1943983397 instance=ExtResource("8_6rsl6")]
+position = Vector2(-2320, 248)
+cur_type = 0
+
 [connection signal="body_entered" from="FinalArea" to="MusicManager" method="_on_final_area_body_entered"]
-[connection signal="_on_shrine_success" from="Shrine" to="Thorns1" method="_on_shrine_success"]
 [connection signal="_on_shrine_success" from="Shrine" to="MusicManager" method="_on_shrine__on_shrine_success"]
-[connection signal="_on_shrine_success" from="Shrine1" to="Thorns" method="_on_shrine_success"]
+[connection signal="_on_shrine_success" from="Shrine" to="Thorns1" method="_on_shrine_success"]
 [connection signal="_on_shrine_success" from="Shrine1" to="MusicManager" method="_on_shrine_1__on_shrine_success"]
+[connection signal="_on_shrine_success" from="Shrine1" to="Thorns" method="_on_shrine_success"]

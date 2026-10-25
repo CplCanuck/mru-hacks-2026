@@ -15,15 +15,15 @@ colors = PackedColorArray(0.20784314, 0.08235294, 0.28235295, 0.6509804)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_b1lj4"]
 gradient = SubResource("Gradient_u02tf")
-width = 113
-height = 13
+width = 14
+height = 14
 
 [sub_resource type="Gradient" id="Gradient_njqwk"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+colors = PackedColorArray(0.36078432, 0, 0.2901961, 1, 1, 1, 1, 0)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_13qdw"]
 radius = 8.0
-height = 118.0
+height = 80.0
 
 [node name="NeedleBullet" type="Area2D" unique_id=1449768964]
 collision_layer = 2
@@ -32,7 +32,7 @@ script = ExtResource("1_4iacl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1808515346]
 position = Vector2(0, -9.536743e-07)
-scale = Vector2(0.46496812, 18.249996)
+scale = Vector2(0.28686357, 13.293414)
 texture = SubResource("GradientTexture1D_xrivr")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D" unique_id=1398244487]

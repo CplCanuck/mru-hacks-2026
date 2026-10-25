@@ -172,14 +172,14 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitRange" unique_id=785042563]
-scale = Vector2(0.121638894, 0.119483635)
+scale = Vector2(0.40872747, 0.4014854)
 shape = SubResource("CircleShape2D_xrivr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=91359739]
 position = Vector2(0, -40)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_xrivr")
-animation = &"needle_c"
+animation = &"vine_w"
 autoplay = "needle_c"
 
 [node name="Label" type="Label" parent="." unique_id=1953349695]
