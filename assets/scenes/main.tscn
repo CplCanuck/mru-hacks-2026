@@ -365,8 +365,8 @@ scale = Vector2(4, 4)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ForestMotherAwake" unique_id=231408210]
 sprite_frames = SubResource("SpriteFrames_774ty")
-frame = 1
-frame_progress = 0.5141059
+autoplay = "default"
+frame_progress = 0.09049515
 script = ExtResource("13_t7a27")
 
 [node name="PointLight2D" type="PointLight2D" parent="ForestMotherAwake" unique_id=1715843694]
