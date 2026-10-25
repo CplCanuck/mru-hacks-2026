@@ -6,7 +6,7 @@ extends Node
 # @onready var main_step_5 := $MainMusic/MainStep5
 @onready var menu_music := $Menu
 
-const FADE_TIME = 5 # could be changed for different ones idfk
+const FADE_TIME = 1.0 # could be changed for different ones idfk
 
 var step_intro_time := 4
 var music_steps := []
@@ -37,14 +37,10 @@ enum music_step_type {
 func _ready():
 	music_steps = [main_step_1, main_step_2, main_step_3, main_step_4]
 	start_all_music()
-	await get_tree().create_timer(2.0).timeout
+	
+	# remove this if we want to play cutscene music yeah
 	fade_in_layer(main_step_1)
-	await get_tree().create_timer(5.0).timeout
-	fade_in_layer(main_step_2)
-	await get_tree().create_timer(5.0).timeout
-	fade_in_layer(main_step_3)
-	await get_tree().create_timer(5.0).timeout
-	fade_in_layer(main_step_4)
+	
 	
 
 func fade_in_layer(step :AudioStreamPlayer):
@@ -78,3 +74,19 @@ func get_all_descendants(node: Node) -> Array:
 		result.append(child)
 		result += get_all_descendants(child)
 	return result
+
+
+func _on_shrine__on_shrine_success(position: Vector2) -> void:
+	print("DEBUG: step 2 triggered")
+	fade_in_layer(main_step_2)
+
+
+func _on_shrine_1__on_shrine_success(position: Vector2) -> void:
+	print("DEBUG: step 3 triggered")
+	fade_in_layer(main_step_3)
+
+
+func _on_final_area_body_entered(body: Node2D) -> void:
+	if body.name == "player":
+		print("DEBUG: step 4 triggered")
+		fade_in_layer(main_step_4)
