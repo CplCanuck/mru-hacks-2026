@@ -1,11 +1,20 @@
 extends Area2D
+@onready var particles : CPUParticles2D = $Sprite2D/CPUParticles2D
 
 var speed = 200 
 var total_range = speed * 10
 var travelled_distance = 0
 
+
 func _ready():
 	print("Bullet made")
+	##particles.rotation = PI
+	#particles.angle_min = rad_to_deg(rotation)
+	#particles.angle_max = rad_to_deg(rotation)
+	#particles.rotation = rotation
+
+func _process(delta):
+	pass
 
 # moves object forword acording to the direction facing when spawned
 func _physics_process(delta):

@@ -10,108 +10,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
 radius = 193.01036
 
-[sub_resource type="Animation" id="Animation_4aoi1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"default"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HitRange/Polygon2D:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.5, 0.5)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("HitRange/Polygon2D:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(2.067836, 0, 0, 0.23137255)]
-}
-
-[sub_resource type="Animation" id="Animation_jq2sp"]
-resource_name = "attacking"
-step = 0.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"attacking"]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.55499995, 0.9564112),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"spawn_atk"
-}, {
-"args": [],
-"method": &"end_atk"
-}]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("HitRange/Polygon2D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5439629),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.5, 1e-05), Vector2(0.5, 0.5)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("HitRange/Polygon2D:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.0009999999, 0.61996907),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(2.067836, 0, 0, 0), Color(2.067836, 0, 0, 0.23137255)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8na7t"]
-_data = {
-&"RESET": SubResource("Animation_4aoi1"),
-&"attacking": SubResource("Animation_jq2sp")
-}
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_4aoi1"]
 atlas = ExtResource("1_wmx65")
 region = Rect2(0, 0, 32, 32)
@@ -455,6 +353,87 @@ gradient = SubResource("Gradient_8na7t")
 mesh = SubResource("ArrayMesh_g0gdf")
 base_texture = SubResource("GradientTexture1D_7mpdc")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8na7t"]
+
+[sub_resource type="Animation" id="Animation_4aoi1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Warning:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Warning:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(2.067836, 2.067836, 2.067836, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jq2sp"]
+resource_name = "attacking"
+length = 0.82
+step = 0.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.21499991, 0.6964112),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"spawn_atk"
+}, {
+"args": [],
+"method": &"end_atk"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Warning:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5439629),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 1e-05), Vector2(0.5, 0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Warning:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.61996907),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(2.067836, 0, 0, 0), Color(2.067836, 0, 0, 0.23137255)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8na7t"]
+_data = {
+&"RESET": SubResource("Animation_4aoi1"),
+&"attacking": SubResource("Animation_jq2sp")
+}
+
 [node name="EnemyTree" type="Node2D" unique_id=1938661581]
 script = ExtResource("1_4aoi1")
 
@@ -465,37 +444,20 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body" unique_id=1619100171]
 shape = SubResource("CapsuleShape2D_xrivr")
 
-[node name="AttackRange" type="Area2D" parent="." unique_id=1629859292]
-collision_layer = 2
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange" unique_id=2059581384]
-position = Vector2(5, 0)
-shape = SubResource("CircleShape2D_xrivr")
-
 [node name="HitRange" type="Area2D" parent="." unique_id=1009339317]
-scale = Vector2(0.1285959, 0.12728202)
+scale = Vector2(8.277755, -8.927086)
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitRange" unique_id=785042563]
+scale = Vector2(0.121638894, 0.119483635)
 shape = SubResource("CircleShape2D_xrivr")
-
-[node name="Polygon2D" type="Polygon2D" parent="HitRange" unique_id=1226986307]
-modulate = Color(2.067836, 0, 0, 0.23137255)
-scale = Vector2(0.5, 0.5)
-offset = Vector2(-64, -2)
-texture = ExtResource("3_jq2sp")
-polygon = PackedVector2Array(41.439514, 1.4425507, 7.780609, 120.4509, 121.98053, 120.4509, 86.51843, 1.4425507)
-uv = PackedVector2Array(40.237427, 3.2457066, 7.780609, 120.4509, 121.98053, 120.4509, 86.51843, 1.4425507)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=457215631]
-libraries/ = SubResource("AnimationLibrary_8na7t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=91359739]
 modulate = Color(0.459, 0, 0.69, 1)
 scale = Vector2(0.64538693, 1.3542649)
 sprite_frames = SubResource("SpriteFrames_xrivr")
+animation = &"attacking"
 autoplay = "needle_c"
 
 [node name="Label" type="Label" parent="." unique_id=1953349695]
@@ -504,7 +466,6 @@ offset_bottom = 23.0
 text = "7"
 
 [node name="ColorRect" type="Sprite2D" parent="." unique_id=257882510]
-visible = false
 scale = Vector2(-0.96045226, 1.2939343)
 texture = SubResource("MeshTexture_7f2x3")
 
@@ -517,5 +478,42 @@ wait_time = 0.3
 [node name="BlastTimer" type="Timer" parent="BulletSpawnPoint" unique_id=289765283]
 wait_time = 2.0
 
+[node name="Duration" type="Timer" parent="BulletSpawnPoint" unique_id=1450145715]
+wait_time = 2.0
+
+[node name="Warning" type="Polygon2D" parent="." unique_id=1226986307]
+modulate = Color(2.067836, 2.067836, 2.067836, 1)
+self_modulate = Color(2.068, 0, 0, 0.231)
+scale = Vector2(0.5, 0.5)
+offset = Vector2(-64, -2)
+texture = ExtResource("3_jq2sp")
+polygon = PackedVector2Array(41.439514, 1.4425507, 7.780609, 120.4509, 121.98053, 120.4509, 86.51843, 1.4425507)
+uv = PackedVector2Array(40.237427, 3.2457066, 7.780609, 120.4509, 121.98053, 120.4509, 86.51843, 1.4425507)
+
+[node name="Timer" type="Timer" parent="Warning" unique_id=922241827]
+
+[node name="VineAttack2" type="Sprite2D" parent="Warning" unique_id=1488762115]
+position = Vector2(1.4210855e-14, 0)
+scale = Vector2(0.4, 1)
+texture = ExtResource("3_jq2sp")
+offset = Vector2(-4.934542e-07, 64)
+
+[node name="AttackRange" type="Area2D" parent="Warning/VineAttack2" unique_id=1629859292]
+position = Vector2(3.8973684e-07, -65.407135)
+scale = Vector2(1.9745342, 1.0219865)
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Warning/VineAttack2/AttackRange" unique_id=2059581384]
+position = Vector2(-1.9738168e-07, 121.73069)
+scale = Vector2(3.3115149, 5.7566977)
+shape = SubResource("RectangleShape2D_8na7t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=457215631]
+libraries/ = SubResource("AnimationLibrary_8na7t")
+
 [connection signal="body_entered" from="HitRange" to="." method="_on_hit_range_body_entered"]
 [connection signal="body_exited" from="HitRange" to="." method="_on_hit_range_body_exited"]
+[connection signal="timeout" from="BulletSpawnPoint/SingleTimer" to="BulletSpawnPoint" method="_on_single_timer_timeout"]
+[connection signal="timeout" from="BulletSpawnPoint/BlastTimer" to="BulletSpawnPoint" method="_on_blast_timer_timeout"]
+[connection signal="timeout" from="BulletSpawnPoint/Duration" to="." method="_on_duration_timeout"]

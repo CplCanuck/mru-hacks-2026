@@ -4,8 +4,6 @@ const NEEDLE = preload("res://assets/objects/needle_bullet.tscn")
 @onready var single_timer = $SingleTimer
 @onready var blast_timer = $BlastTimer
 var shooting_type
-var duration_max = 5
-var cur_duration
 
 func _ready():
 	shooting_type = randi_range(0,1)
@@ -34,9 +32,11 @@ func turn_on_shooter():
 func _on_single_timer_timeout():
 	print("Single timer timeout")
 	var new_needle = NEEDLE.instantiate()
+	get_tree().current_scene.add_child(new_needle)
 	new_needle.global_position = global_position
 	new_needle.global_rotation = global_rotation - 1.57
-	get_tree().add_child(new_needle)
+	new_needle.particles.angle_min = rad_to_deg(new_needle.rotation) #+ 90
+	new_needle.particles.angle_max = rad_to_deg(new_needle.rotation) #+ 90
 	single_timer.start()
 	pass
 
@@ -46,8 +46,10 @@ func _on_blast_timer_timeout():
 	var amount = 12
 	for i in range(amount):
 		var new_needle = NEEDLE.instantiate()
+		get_tree().current_scene.add_child(new_needle)
 		new_needle.global_position = global_position
 		new_needle.rotation = deg_to_rad((i/float(amount)) * 360.0)
-		add_child(new_needle)
+		new_needle.particles.angle_min = rad_to_deg(new_needle.rotation)#+ 90
+		new_needle.particles.angle_max = rad_to_deg(new_needle.rotation)#+ 90
 	blast_timer.start()
 	pass 

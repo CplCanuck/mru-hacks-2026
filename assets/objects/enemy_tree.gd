@@ -2,6 +2,7 @@ extends Node2D
 @onready var sprite := $AnimatedSprite2D
 var corrupted_color := Color(0.459, 0.0, 0.69, 1.0)
 var revitalized_color := Color(1.0, 1.0, 1.0, 1.0)
+var player
 
 enum tree_type {
 	NEEDLES_C,
@@ -22,10 +23,11 @@ enum states {
 var current_state = states.IDLE
 var setuped_state = -1
 var player_in_range := false
+var length_of_vine_atk = 3.0
 
-@export var cur_type = tree_type.NEEDLES_C
-var corrupt_sprite = "vine_r"
-var revitalize_sprite = "vine_r"
+@export var cur_type = tree_type.VINES_C
+var corrupt_sprite = "needle_c"
+var revitalize_sprite = "needle_c"
 
 @export var atk_cooldown_max = 3;
 var atk_cooldown = atk_cooldown_max;
@@ -35,11 +37,14 @@ var hit_cooldown = hit_cooldown_max;
 
 func _ready():
 	# start_atk()
+	$Warning/VineAttack2.visible = false
+	$Warning.visible = false
 	var overlapping_bodies = $HitRange.get_overlapping_bodies()
 	if overlapping_bodies:
 		for body in overlapping_bodies:
 			if body.is_in_group("Player"):
 				player_in_range = true
+				player = body
 				break
 	
 	match cur_type:
@@ -114,29 +119,85 @@ func setup_cur_state():
 	setuped_state = current_state
 	return
 	
+func spawn_warning():
+	if player:
+		$Warning.visible = true
+		var tween = create_tween()
+		tween.tween_property($Warning, "scale", Vector2($Warning.scale.x,length_of_vine_atk), 1
+			).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+		
+		var direction: Vector2 = player.global_position - global_position
+		var player_angle: float = direction.angle() + deg_to_rad(-90)
+		var target_angle
+		
+		var random_i = randi_range(2,5)
+		for i in range(random_i):
+			"""
+			if i % 2 == 0:
+				target_angle = deg_to_rad(randi_range(0, 180))
+			else:
+				target_angle = deg_to_rad(randi_range(-180, 0))
+			"""
+			#var ran_offset = deg_to_rad(randf_range(5,55))
+			if i % 2 == 0:
+				target_angle = player_angle + randf_range(0, deg_to_rad(90))
+			else:
+				target_angle = player_angle - randf_range(0, deg_to_rad(90))
+		
+			var tween1 = create_tween()
+			tween1.tween_property($Warning, "global_rotation", target_angle, 0.3
+				).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+			await tween1.finished
+			"""
+			while angle_difference($Warning.global_rotation, target_angle) > 0.01:
+				$Warning.global_rotation = lerp_angle($Warning.global_rotation, target_angle, 0.1)
+				await get_tree().process_frame
+			"""
+		spawn_atk()
+		pass
+
 func start_atk():
+	$Warning/VineAttack2.scale.y = 0
 	atk_cooldown = atk_cooldown_max
 	print("Starting enemy attack")
-	$AnimationPlayer.play("attacking")
+	if cur_type == tree_type.VINES_C:
+		spawn_warning()
+	else:
+		$AnimationPlayer.play("attacking")
 
 func spawn_atk():
 	match cur_type:
 		tree_type.NEEDLES_C:
 			$BulletSpawnPoint.turn_on_shooter()
+			$BulletSpawnPoint/Duration.start()
 			pass
 		tree_type.VINES_C:
-			pass
+			print("Growing vines")
+			$Warning/VineAttack2.visible = true
+			var tween_scale_up = create_tween()
+			tween_scale_up.tween_property($Warning/VineAttack2, "scale", Vector2($Warning/VineAttack2.scale.x, 1), 0.15)
+			await tween_scale_up.finished
+			var tween_scale_down = create_tween()
+			tween_scale_down.tween_property($Warning/VineAttack2, "scale", Vector2($Warning/VineAttack2.scale.x, 0), 0.1)
+			await tween_scale_down.finished
+			end_atk()
 	print("Spawning enemy attack")
 	pass
 
 func end_atk():
+	print("Ending atk")
 	current_state = states.IDLE
+	if cur_type == tree_type.VINES_C:
+		print("Ending visable")
+		$Warning/VineAttack2.visible = false
+		$Warning.visible = false
 	pass
-
 
 func _on_hit_range_body_entered(body:Node):
 	if body.is_in_group("Player"):
 		player_in_range = true
+		player = body
 		print("Player in range")
 	else:
 		print("Enemy range deteched something entering thats not the player")
@@ -149,4 +210,10 @@ func _on_hit_range_body_exited(body):
 	else:
 		print("Enemy range deteched something exiting thats not the player")
 	print("Player out of range")
+	pass
+
+
+func _on_duration_timeout():
+	$BulletSpawnPoint/SingleTimer.stop()
+	$BulletSpawnPoint/BlastTimer.stop()
 	pass

@@ -10,4 +10,8 @@ position = Vector2(273, 267)
 collision_mask = 3
 
 [node name="EnemyTree" parent="." unique_id=1938661581 instance=ExtResource("2_4oc3o")]
-position = Vector2(799, 264)
+position = Vector2(933, 178)
+
+[node name="EnemyTree2" parent="." unique_id=843774998 instance=ExtResource("2_4oc3o")]
+position = Vector2(120, 509)
+cur_type = 0
