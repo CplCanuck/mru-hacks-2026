@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btfxe1snpeq3e"
-path="res://.godot/imported/BearAwake.png-6a622aba132d60beb218ec6071d1983b.ctex"
+uid="uid://chhn35sgrsohj"
+path="res://.godot/imported/DeerSleep3.png-6fa7b28920353cdacf0ddad7b48af25e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/BearAwake.png"
-dest_files=["res://.godot/imported/BearAwake.png-6a622aba132d60beb218ec6071d1983b.ctex"]
+source_file="res://assets/sprites/DeerSleep3.png"
+dest_files=["res://.godot/imported/DeerSleep3.png-6fa7b28920353cdacf0ddad7b48af25e.ctex"]
 
 [params]
 
