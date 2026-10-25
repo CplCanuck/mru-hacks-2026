@@ -45,15 +45,15 @@ tile_set = SubResource("TileSet_bi8p6")
 [node name="player" parent="." unique_id=1106833625 instance=ExtResource("3_sfrgt")]
 position = Vector2(303, 272)
 
-[node name="Shrine" parent="." unique_id=35282369 instance=ExtResource("5_etxf0")]
+[node name="Shrine1" parent="." unique_id=35282369 instance=ExtResource("5_etxf0")]
 position = Vector2(550, 1300)
 
-[node name="Thorn Bush1" type="Node2D" parent="." unique_id=1597888591]
+[node name="Thorns1" type="Node2D" parent="." unique_id=1597888591]
 z_index = 1
 position = Vector2(544, 1632)
 script = ExtResource("5_xplbd")
 
-[node name="Unlock Particles" type="CPUParticles2D" parent="Thorn Bush1" unique_id=1624980542]
+[node name="Unlock Particles" type="CPUParticles2D" parent="Thorns1" unique_id=1624980542]
 emitting = false
 amount = 30
 texture = ExtResource("6_6rsl6")
@@ -61,30 +61,31 @@ lifetime = 2.0
 one_shot = true
 spread = 1.0
 gravity = Vector2(0, 0)
+scale_amount_max = 3.0
 color_ramp = SubResource("Gradient_p5d64")
 color_initial_ramp = SubResource("Gradient_xplbd")
 metadata/_edit_lock_ = true
 
-[node name="EndPoint" type="Marker2D" parent="Thorn Bush1/Unlock Particles" unique_id=131124395]
+[node name="EndPoint" type="Marker2D" parent="Thorns1/Unlock Particles" unique_id=131124395]
 
-[node name="Thorns" parent="Thorn Bush1" unique_id=699148790 instance=ExtResource("7_p5d64")]
+[node name="Thorns" parent="Thorns1" unique_id=699148790 instance=ExtResource("7_p5d64")]
 
-[node name="Thorns2" parent="Thorn Bush1" unique_id=1503129771 instance=ExtResource("7_p5d64")]
+[node name="Thorns2" parent="Thorns1" unique_id=1503129771 instance=ExtResource("7_p5d64")]
 position = Vector2(64, 0)
 
-[node name="Thorns3" parent="Thorn Bush1" unique_id=1601616270 instance=ExtResource("7_p5d64")]
+[node name="Thorns3" parent="Thorns1" unique_id=1601616270 instance=ExtResource("7_p5d64")]
 position = Vector2(128, 0)
 
-[node name="Thorns4" parent="Thorn Bush1" unique_id=430986737 instance=ExtResource("7_p5d64")]
+[node name="Thorns4" parent="Thorns1" unique_id=430986737 instance=ExtResource("7_p5d64")]
 position = Vector2(192, 0)
 
-[node name="Thorns5" parent="Thorn Bush1" unique_id=407878412 instance=ExtResource("7_p5d64")]
+[node name="Thorns5" parent="Thorns1" unique_id=407878412 instance=ExtResource("7_p5d64")]
 position = Vector2(-64, 0)
 
-[node name="Thorns6" parent="Thorn Bush1" unique_id=1366380515 instance=ExtResource("7_p5d64")]
+[node name="Thorns6" parent="Thorns1" unique_id=1366380515 instance=ExtResource("7_p5d64")]
 position = Vector2(-128, 0)
 
-[node name="Thorns7" parent="Thorn Bush1" unique_id=1651036622 instance=ExtResource("7_p5d64")]
+[node name="Thorns7" parent="Thorns1" unique_id=1651036622 instance=ExtResource("7_p5d64")]
 position = Vector2(-192, 0)
 
-[connection signal="_on_shrine_success" from="Shrine" to="Thorn Bush1" method="_on_shrine_success"]
+[connection signal="_on_shrine_success" from="Shrine1" to="Thorns1" method="_on_shrine_success"]

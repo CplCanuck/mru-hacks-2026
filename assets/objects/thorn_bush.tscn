@@ -23,6 +23,7 @@ lifetime = 2.0
 one_shot = true
 spread = 1.0
 gravity = Vector2(0, 0)
+scale_amount_max = 3.0
 color_ramp = SubResource("Gradient_p5d64")
 color_initial_ramp = SubResource("Gradient_xplbd")
 metadata/_edit_lock_ = true
