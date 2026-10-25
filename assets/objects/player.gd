@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var stun_duration : float = 0.75
 @export var stun_knockback_force := 700.0
 
-@onready var player_sprite: Sprite2D = $"Player Sprite"
+@onready var player_sprite: AnimatedSprite2D = $"Player Sprite"
 @onready var attack_pivot: Marker2D = $"Attack Pivot"
 @onready var attack_cooldown: Timer = $"Attack Cooldown"
 @onready var bark_collider: CollisionShape2D = $"Attack Pivot/Attackbox/CollisionShape2D"
@@ -69,6 +69,14 @@ func handle_attack_click():
 		
 		# set attack direction
 		attack_pivot.rotation = global_position.direction_to(get_global_mouse_position()).angle()
+		print(attack_pivot.rotation)
+		
+		# change to barking sprite
+		player_sprite.frame = 1
+		if attack_pivot.rotation >= -PI/2 && attack_pivot.rotation <= PI/2:
+			player_sprite.flip_h = true
+		else:
+			player_sprite.flip_h = false
 		
 		# trigger attack animation
 		bark_animation.visible = true
@@ -121,3 +129,6 @@ func _on_invincibility_timer_timeout() -> void:
 func _on_stun_timer_timeout() -> void:
 	is_stunned = false
 	stun_stars.visible = false
+
+func _on_bark_animation_animation_finished() -> void:
+	player_sprite.frame = 0

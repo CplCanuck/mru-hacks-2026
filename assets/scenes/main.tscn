@@ -33,7 +33,6 @@ y_sort_enabled = true
 
 [node name="MainCamera2D" type="Camera2D" parent="." unique_id=430699607]
 position = Vector2(303, 272)
-zoom = Vector2(0.5, 0.5)
 script = ExtResource("1_sfrgt")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1347882689]
