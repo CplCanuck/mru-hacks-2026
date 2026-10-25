@@ -4,6 +4,9 @@ var speed = 200
 var total_range = speed * 10
 var travelled_distance = 0
 
+func _ready():
+	print("Bullet made")
+
 # moves object forword acording to the direction facing when spawned
 func _physics_process(delta):
 	var direction = Vector2.RIGHT.rotated(rotation)

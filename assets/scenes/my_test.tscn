@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://deln288tc384k"]
+
+[ext_resource type="PackedScene" uid="uid://bqhjiiceuhlyx" path="res://assets/objects/player.tscn" id="1_nnobt"]
+[ext_resource type="PackedScene" uid="uid://buyehsgtm576j" path="res://assets/objects/enemy_tree.tscn" id="2_4oc3o"]
+
+[node name="Node2D" type="Node2D" unique_id=1647943177]
+
+[node name="player" parent="." unique_id=1106833625 instance=ExtResource("1_nnobt")]
+position = Vector2(273, 267)
+collision_mask = 3
+
+[node name="EnemyTree" parent="." unique_id=1938661581 instance=ExtResource("2_4oc3o")]
+position = Vector2(799, 264)

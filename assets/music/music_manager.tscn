@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dclwv5jnsb230"]
 
-[ext_resource type="Script" uid="uid://qqrgexgw8gyn" path="res://music_manager.gd" id="1_6ruce"]
+[ext_resource type="Script" uid="uid://qqrgexgw8gyn" path="res://assets/music/music_manager.gd" id="1_6ruce"]
 [ext_resource type="AudioStream" uid="uid://cn0ilyamsdv6c" path="res://assets/music/music_assets/freesound_community-metronome-121bpm-85063.mp3" id="2_6ruce"]
 
 [node name="MusicManager" type="Node" unique_id=1033291426]

@@ -464,7 +464,6 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body" unique_id=1619100171]
 shape = SubResource("CapsuleShape2D_xrivr")
-disabled = true
 
 [node name="AttackRange" type="Area2D" parent="." unique_id=1629859292]
 collision_layer = 2
@@ -473,7 +472,6 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange" unique_id=2059581384]
 position = Vector2(5, 0)
 shape = SubResource("CircleShape2D_xrivr")
-disabled = true
 
 [node name="HitRange" type="Area2D" parent="." unique_id=1009339317]
 scale = Vector2(0.1285959, 0.12728202)
@@ -482,7 +480,6 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitRange" unique_id=785042563]
 shape = SubResource("CircleShape2D_xrivr")
-disabled = true
 
 [node name="Polygon2D" type="Polygon2D" parent="HitRange" unique_id=1226986307]
 modulate = Color(2.067836, 0, 0, 0.23137255)

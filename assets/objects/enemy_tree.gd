@@ -34,7 +34,7 @@ var atk_cooldown = atk_cooldown_max;
 var hit_cooldown = hit_cooldown_max;
 
 func _ready():
-	start_atk()
+	# start_atk()
 	var overlapping_bodies = $HitRange.get_overlapping_bodies()
 	if overlapping_bodies:
 		for body in overlapping_bodies:
@@ -137,9 +137,10 @@ func end_atk():
 func _on_hit_range_body_entered(body:Node):
 	if body.is_in_group("Player"):
 		player_in_range = true
+		print("Player in range")
 	else:
 		print("Enemy range deteched something entering thats not the player")
-	print("Player in range")
+	
 	pass
 
 func _on_hit_range_body_exited(body):
