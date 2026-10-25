@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://c7ifwv6s0lity" path="res://assets/sprites/particle-square.png" id="6_6rsl6"]
 [ext_resource type="PackedScene" uid="uid://cfiknwojgqbo0" path="res://assets/objects/thorns.tscn" id="7_p5d64"]
 [ext_resource type="PackedScene" uid="uid://buyehsgtm576j" path="res://assets/objects/enemy_tree.tscn" id="8_6rsl6"]
+[ext_resource type="AudioStream" uid="uid://b6k4o0qyaf2e1" path="res://assets/sfx/COMPLETE quest - deer (2).wav" id="12_ahyqc"]
+[ext_resource type="Script" uid="uid://e3yabyknnmlp" path="res://assets/scenes/deer_sound.gd" id="13_t7a27"]
+[ext_resource type="Script" uid="uid://chqhvvl1pq87" path="res://assets/scenes/bear_sound.gd" id="15_xqcey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_774ty"]
 
@@ -59,9 +62,13 @@ tile_set = SubResource("TileSet_bi8p6")
 [node name="player" parent="." unique_id=1106833625 instance=ExtResource("3_sfrgt")]
 position = Vector2(303, 272)
 
-[node name="Shrine" parent="." unique_id=35282369 node_paths=PackedStringArray("trees") instance=ExtResource("5_etxf0")]
+[node name="Shrine" parent="." unique_id=35282369 instance=ExtResource("5_etxf0")]
 position = Vector2(550, 550)
-trees = [NodePath("../EnemyTree")]
+
+[node name="DeerSound2" type="AudioStreamPlayer2D" parent="Shrine" unique_id=1276677759]
+position = Vector2(-550, -550)
+stream = ExtResource("12_ahyqc")
+script = ExtResource("13_t7a27")
 
 [node name="Thorns" type="Node2D" parent="." unique_id=1597888591]
 z_index = 1
@@ -127,6 +134,12 @@ position = Vector2(-3330, -568)
 
 [node name="Shrine1" parent="." unique_id=1780998926 instance=ExtResource("5_etxf0")]
 position = Vector2(-2600, 550)
+
+[node name="BearSound" type="AudioStreamPlayer2D" parent="Shrine1" unique_id=862729260]
+position = Vector2(2600, -550)
+stream = ExtResource("12_ahyqc")
+bus = &"Sfx"
+script = ExtResource("15_xqcey")
 
 [node name="Thorns1" type="Node2D" parent="." unique_id=1397386031]
 z_index = 1
@@ -225,8 +238,12 @@ position = Vector2(-3081, 663)
 [node name="EnemyTree7" parent="." unique_id=1650975366 instance=ExtResource("8_6rsl6")]
 position = Vector2(-2273, 948)
 
+[node name="ShrineSounds" type="Node2D" parent="." unique_id=1111337949]
+
 [connection signal="body_entered" from="FinalArea" to="MusicManager" method="_on_final_area_body_entered"]
-[connection signal="_on_shrine_success" from="Shrine" to="Thorns1" method="_on_shrine_success"]
 [connection signal="_on_shrine_success" from="Shrine" to="MusicManager" method="_on_shrine__on_shrine_success"]
-[connection signal="_on_shrine_success" from="Shrine1" to="Thorns" method="_on_shrine_success"]
+[connection signal="_on_shrine_success" from="Shrine" to="Thorns1" method="_on_shrine_success"]
+[connection signal="_on_shrine_success" from="Shrine" to="Shrine/DeerSound2" method="_on_shrine__on_shrine_success"]
 [connection signal="_on_shrine_success" from="Shrine1" to="MusicManager" method="_on_shrine_1__on_shrine_success"]
+[connection signal="_on_shrine_success" from="Shrine1" to="Thorns" method="_on_shrine_success"]
+[connection signal="_on_shrine_success" from="Shrine1" to="Shrine1/BearSound" method="_on_shrine_1__on_shrine_success"]
