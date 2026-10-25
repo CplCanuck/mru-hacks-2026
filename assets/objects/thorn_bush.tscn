@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://gtc7hb5opfr2"]
+
+[ext_resource type="Script" uid="uid://ct0ad5jr5ep0d" path="res://assets/objects/thorn_bush.gd" id="1_ddf0x"]
+[ext_resource type="Texture2D" uid="uid://c7ifwv6s0lity" path="res://assets/sprites/particle-square.png" id="2_411c7"]
+[ext_resource type="PackedScene" uid="uid://cfiknwojgqbo0" path="res://assets/objects/thorns.tscn" id="3_8cck5"]
+
+[sub_resource type="Gradient" id="Gradient_p5d64"]
+offsets = PackedFloat32Array(0, 0.52469134, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_xplbd"]
+colors = PackedColorArray(0.31764707, 1, 0, 1, 0.15294118, 0.7607843, 0.54901963, 1)
+
+[node name="Thorns1" type="Node2D" unique_id=1597888591]
+z_index = 1
+script = ExtResource("1_ddf0x")
+
+[node name="Unlock Particles" type="CPUParticles2D" parent="." unique_id=1624980542]
+emitting = false
+amount = 30
+texture = ExtResource("2_411c7")
+lifetime = 2.0
+one_shot = true
+spread = 1.0
+gravity = Vector2(0, 0)
+color_ramp = SubResource("Gradient_p5d64")
+color_initial_ramp = SubResource("Gradient_xplbd")
+metadata/_edit_lock_ = true
+
+[node name="EndPoint" type="Marker2D" parent="Unlock Particles" unique_id=131124395]
+
+[node name="Thorns" parent="." unique_id=699148790 instance=ExtResource("3_8cck5")]
+
+[node name="Thorns2" parent="." unique_id=1503129771 instance=ExtResource("3_8cck5")]
+position = Vector2(64, 0)
+
+[node name="Thorns3" parent="." unique_id=1601616270 instance=ExtResource("3_8cck5")]
+position = Vector2(128, 0)
+
+[node name="Thorns4" parent="." unique_id=430986737 instance=ExtResource("3_8cck5")]
+position = Vector2(192, 0)
+
+[node name="Thorns5" parent="." unique_id=407878412 instance=ExtResource("3_8cck5")]
+position = Vector2(-64, 0)
+
+[node name="Thorns6" parent="." unique_id=1366380515 instance=ExtResource("3_8cck5")]
+position = Vector2(-128, 0)
+
+[node name="Thorns7" parent="." unique_id=1651036622 instance=ExtResource("3_8cck5")]
+position = Vector2(-192, 0)
