@@ -17,6 +17,7 @@ extends CharacterBody2D
 @onready var invincibility_timer: Timer = $"Invincibility Timer"
 @onready var stun_timer: Timer = $"Stun Timer"
 @onready var stun_stars: AnimatedSprite2D = $"Stun Stars"
+@onready var god_mode_label: Label = $"God Mode Label"
 
 var is_stunned : bool = false
 var is_invincible : bool = false
@@ -29,8 +30,10 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Demo God Mode"):
 		if is_god_mode:
 			is_god_mode = false
+			god_mode_label.visible = false
 		else:
 			is_god_mode = true
+			god_mode_label.visible = true
 	
 	# Change out for enemy hit once we have enemies
 	if Input.is_action_just_pressed("test") && !is_god_mode:
@@ -94,7 +97,7 @@ func handle_attack_click():
 
 func handle_damage(incoming_direction: Vector2) -> void:
 	# don't need to handle damage if we have i frames
-	if is_invincible:
+	if is_invincible || is_god_mode:
 		return
 	
 	# ouch sound

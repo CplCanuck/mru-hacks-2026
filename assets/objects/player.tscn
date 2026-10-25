@@ -323,6 +323,14 @@ texture = SubResource("GradientTexture2D_xrivr")
 offset = Vector2(4, 0)
 texture_scale = 2.0
 
+[node name="God Mode Label" type="Label" parent="." unique_id=1179781599]
+visible = false
+offset_left = -10.0
+offset_top = -117.0
+offset_right = 30.0
+offset_bottom = -99.0
+text = "GM"
+
 [connection signal="timeout" from="Attack Cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="Invincibility Timer" to="." method="_on_invincibility_timer_timeout"]
 [connection signal="timeout" from="Stun Timer" to="." method="_on_stun_timer_timeout"]
