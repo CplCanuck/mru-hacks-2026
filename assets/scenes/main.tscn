@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://ct0ad5jr5ep0d" path="res://assets/objects/thorn_bush.gd" id="5_xplbd"]
 [ext_resource type="Texture2D" uid="uid://c7ifwv6s0lity" path="res://assets/sprites/particle-square.png" id="6_6rsl6"]
 [ext_resource type="PackedScene" uid="uid://cfiknwojgqbo0" path="res://assets/objects/thorns.tscn" id="7_p5d64"]
+[ext_resource type="PackedScene" uid="uid://buyehsgtm576j" path="res://assets/objects/enemy_tree.tscn" id="8_6rsl6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dfgan"]
 texture = ExtResource("1_kpi06")
@@ -43,8 +44,9 @@ tile_set = SubResource("TileSet_bi8p6")
 [node name="player" parent="." unique_id=1106833625 instance=ExtResource("3_sfrgt")]
 position = Vector2(303, 272)
 
-[node name="Shrine" parent="." unique_id=35282369 instance=ExtResource("5_etxf0")]
+[node name="Shrine" parent="." unique_id=35282369 node_paths=PackedStringArray("trees") instance=ExtResource("5_etxf0")]
 position = Vector2(550, 550)
+trees = [NodePath("../EnemyTree")]
 
 [node name="Thorns" type="Node2D" parent="." unique_id=1597888591]
 z_index = 1
@@ -180,6 +182,9 @@ text = "You win!
 The forest has been revitalized and
 your mother has been saved!"
 horizontal_alignment = 1
+
+[node name="EnemyTree" parent="." unique_id=1938661581 instance=ExtResource("8_6rsl6")]
+position = Vector2(661, -23)
 
 [connection signal="_on_shrine_success" from="Shrine" to="Thorns1" method="_on_shrine_success"]
 [connection signal="_on_shrine_success" from="Shrine1" to="Thorns" method="_on_shrine_success"]
