@@ -22,7 +22,8 @@ var is_stunned : bool = false
 var is_invincible : bool = false
 var is_god_mode : bool = false
 
-
+func _ready():
+	player_sprite.play("idle")
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Demo God Mode"):
@@ -71,7 +72,8 @@ func handle_attack_click():
 		attack_pivot.rotation = global_position.direction_to(get_global_mouse_position()).angle()
 		
 		# change to barking sprite
-		player_sprite.frame = 1
+		
+		# player_sprite.frame = 1
 		if attack_pivot.rotation >= -PI/2 && attack_pivot.rotation <= PI/2:
 			player_sprite.flip_h = true
 		else:
@@ -80,11 +82,15 @@ func handle_attack_click():
 		# trigger attack animation
 		bark_animation.visible = true
 		bark_animation.play("bark")
+		player_sprite.play("attack")
 
 		$BarkSound.play()
 
 		# trigger attack hitbox (currently turned off in timer time out)
 		bark_collider.disabled = false
+		
+		await get_tree().create_timer(1.0).timeout
+		player_sprite.play("idle")
 
 func handle_damage(incoming_direction: Vector2) -> void:
 	# don't need to handle damage if we have i frames
