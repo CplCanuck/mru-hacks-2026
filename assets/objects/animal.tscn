@@ -1,9 +1,20 @@
 [gd_scene format=3 uid="uid://bdryjmjc77qsf"]
 
+[ext_resource type="Texture2D" uid="uid://hi47c77vk0uu" path="res://assets/sprites/BearAwake1.png" id="1_ae1io"]
 [ext_resource type="Texture2D" uid="uid://biqhei3lct253" path="res://assets/sprites/DeerSleep1.png" id="1_yto4a"]
 [ext_resource type="Texture2D" uid="uid://cxvfwn1scs667" path="res://assets/sprites/DeerSleep2.png" id="2_awalw"]
+[ext_resource type="Texture2D" uid="uid://ccbuq0l7k15b2" path="res://assets/sprites/BearAwake2.png" id="2_tem33"]
 [ext_resource type="Texture2D" uid="uid://chhn35sgrsohj" path="res://assets/sprites/DeerSleep3.png" id="3_aojcy"]
+[ext_resource type="Texture2D" uid="uid://cq1qq1dfltyr8" path="res://assets/sprites/BearSleep1.png" id="3_laarj"]
+[ext_resource type="Texture2D" uid="uid://c8lot8ecmgbol" path="res://assets/sprites/BearSleep2.png" id="4_3etjf"]
 [ext_resource type="Texture2D" uid="uid://dguy5e47daa6p" path="res://assets/sprites/DeerSleep4.png" id="4_xbam4"]
+[ext_resource type="Texture2D" uid="uid://cvymyn2v42fwt" path="res://assets/sprites/BearSleep3.png" id="5_ma74s"]
+[ext_resource type="Texture2D" uid="uid://c671j2jme67la" path="res://assets/sprites/BearSleep4.png" id="6_b2tkt"]
+[ext_resource type="Texture2D" uid="uid://b3hxsxqp0k435" path="res://assets/sprites/DeerAwake1.png" id="7_sq1u6"]
+[ext_resource type="Texture2D" uid="uid://ugw4bhg1gw3j" path="res://assets/sprites/DeerAwake2.png" id="8_dyi1n"]
+[ext_resource type="Texture2D" uid="uid://q763kl4pcuao" path="res://assets/sprites/DeerAwake3.png" id="9_iidur"]
+[ext_resource type="Texture2D" uid="uid://dwd3a66y74cio" path="res://assets/sprites/DeerAwake4.png" id="10_k4gro"]
+[ext_resource type="Texture2D" uid="uid://bhp8jvv2yyew3" path="res://assets/sprites/DeerAwake5.png" id="11_8d857"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mv7ca"]
 atlas = ExtResource("1_yto4a")
@@ -28,12 +39,30 @@ animations = [{
 "name": &"b_idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("1_ae1io")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_tem33")
+}],
 "loop": 1,
 "name": &"b_revitalized",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_laarj")
+}, {
+"duration": 1.5,
+"texture": ExtResource("4_3etjf")
+}, {
+"duration": 1.5,
+"texture": ExtResource("5_ma74s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_b2tkt")
+}],
 "loop": 1,
 "name": &"b_tired",
 "speed": 5.0
@@ -43,22 +72,37 @@ animations = [{
 "name": &"d_idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("7_sq1u6")
+}, {
+"duration": 1.5,
+"texture": ExtResource("8_dyi1n")
+}, {
+"duration": 1.5,
+"texture": ExtResource("9_iidur")
+}, {
+"duration": 1.5,
+"texture": ExtResource("10_k4gro")
+}, {
+"duration": 2.0,
+"texture": ExtResource("11_8d857")
+}],
 "loop": 1,
 "name": &"d_revitalized",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 1.2,
 "texture": SubResource("AtlasTexture_mv7ca")
 }, {
-"duration": 1.0,
+"duration": 1.7,
 "texture": SubResource("AtlasTexture_73qgp")
 }, {
-"duration": 1.0,
+"duration": 1.7,
 "texture": SubResource("AtlasTexture_ox58x")
 }, {
-"duration": 1.0,
+"duration": 1.2,
 "texture": SubResource("AtlasTexture_hefyg")
 }],
 "loop": 1,
@@ -70,5 +114,7 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1210777558]
 sprite_frames = SubResource("SpriteFrames_xrivr")
-animation = &"b_idle"
+animation = &"d_tired"
 autoplay = "d_tired"
+frame = 1
+frame_progress = 0.018426051

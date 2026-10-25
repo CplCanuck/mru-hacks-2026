@@ -3,13 +3,24 @@
 [ext_resource type="Script" uid="uid://bwywsebbe61wy" path="res://assets/objects/enemy_tree.gd" id="1_4aoi1"]
 [ext_resource type="Texture2D" uid="uid://d33tfhgisb05w" path="res://assets/sprites/Pinetree.png" id="3_fah0y"]
 [ext_resource type="Texture2D" uid="uid://dv2tn2i1artjb" path="res://assets/sprites/PineTreeNeutral.png" id="3_g0gdf"]
+[ext_resource type="Texture2D" uid="uid://bth7okn0smknx" path="res://assets/sprites/willowpine.png" id="3_ihflt"]
 [ext_resource type="Texture2D" uid="uid://iqj0shaupgj8" path="res://assets/sprites/icon.svg" id="3_jq2sp"]
 [ext_resource type="Script" uid="uid://tdnwijoqi7wh" path="res://assets/objects/needle_spawner.gd" id="4_8na7t"]
+[ext_resource type="Texture2D" uid="uid://cnjqve61q3his" path="res://assets/sprites/willowpinefr1.png" id="4_avsly"]
+[ext_resource type="Texture2D" uid="uid://bv5l3m2pecd3m" path="res://assets/sprites/PineWillowFr1.png" id="6_paif6"]
+[ext_resource type="Texture2D" uid="uid://c6nf3guqa473n" path="res://assets/sprites/PineWillowFr2.png" id="7_46mbf"]
+[ext_resource type="Texture2D" uid="uid://b0kcnpqvft2t4" path="res://assets/sprites/PineWillowFr3.png" id="8_yy7u2"]
+[ext_resource type="Texture2D" uid="uid://ms26yvijranh" path="res://assets/sprites/willowtree.png" id="9_453ry"]
+[ext_resource type="Texture2D" uid="uid://cm65c3k4is5r0" path="res://assets/sprites/WillowTreeNeutral.png" id="10_nuydb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xrivr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
 radius = 193.01036
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkyf0"]
+atlas = ExtResource("3_g0gdf")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xrivr"]
 animations = [{
@@ -22,8 +33,11 @@ animations = [{
 "speed": 40.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_g0gdf")
+"duration": 1.5,
+"texture": ExtResource("3_ihflt")
+}, {
+"duration": 1.5,
+"texture": ExtResource("4_avsly")
 }],
 "loop": 1,
 "name": &"needle_c",
@@ -37,14 +51,29 @@ animations = [{
 "name": &"needle_r",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkyf0")
+}],
 "loop": 1,
 "name": &"needle_w",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g0gdf")
+"texture": ExtResource("6_paif6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_46mbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yy7u2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_46mbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_paif6")
 }],
 "loop": 1,
 "name": &"vine_c",
@@ -52,13 +81,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g0gdf")
+"texture": ExtResource("9_453ry")
 }],
 "loop": 1,
 "name": &"vine_r",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_nuydb")
+}],
 "loop": 1,
 "name": &"vine_w",
 "speed": 5.0
@@ -179,8 +211,9 @@ shape = SubResource("CircleShape2D_xrivr")
 position = Vector2(0, -40)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_xrivr")
-animation = &"needle_c"
+animation = &"needle_w"
 autoplay = "needle_c"
+frame_progress = 0.24238986
 
 [node name="Label" type="Label" parent="." unique_id=1953349695]
 visible = false

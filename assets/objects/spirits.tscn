@@ -1,7 +1,19 @@
 [gd_scene format=3 uid="uid://b6msd4q1xiwba"]
 
-[ext_resource type="Texture2D" uid="uid://dmreb8bu4bxac" path="res://icon.svg" id="1_gontp"]
 [ext_resource type="Script" uid="uid://dxys3san0gdac" path="res://assets/objects/spirits.gd" id="1_x0bx7"]
+[ext_resource type="Texture2D" uid="uid://d4mh8afovhkk" path="res://assets/sprites/BearSpiritFr1.png" id="2_g21jq"]
+[ext_resource type="Texture2D" uid="uid://cp17xwtuqhcr8" path="res://assets/sprites/BearSpiritFr2.png" id="3_2advk"]
+[ext_resource type="Texture2D" uid="uid://dlq1lbm25edmx" path="res://assets/sprites/BearSpiritFr3.png" id="4_3gms6"]
+[ext_resource type="Texture2D" uid="uid://twm6s0hykxxm" path="res://assets/sprites/BearSpiritFr4.png" id="5_k3byp"]
+[ext_resource type="Texture2D" uid="uid://civg4kgux2l7s" path="res://assets/sprites/DeerSpiritFr1.png" id="6_y0uco"]
+[ext_resource type="Texture2D" uid="uid://smal7xgij3hg" path="res://assets/sprites/DeerSpiritFr2.png" id="7_da0fy"]
+[ext_resource type="Texture2D" uid="uid://btla106d5x6ss" path="res://assets/sprites/DeerSpiritFr3.png" id="8_bfrk1"]
+[ext_resource type="Texture2D" uid="uid://b4lytubxkr0iw" path="res://assets/sprites/PineSpiritFr1.png" id="9_x8fsh"]
+[ext_resource type="Texture2D" uid="uid://d2xpu6mgks2gt" path="res://assets/sprites/PineSpiritFr2.png" id="10_gxh7w"]
+[ext_resource type="Texture2D" uid="uid://c7nftgr72nipa" path="res://assets/sprites/PineSpiritFr3.png" id="11_74ly7"]
+[ext_resource type="Texture2D" uid="uid://cab1cutw0d1e0" path="res://assets/sprites/WillowSpiritFr1.png" id="12_ty2xv"]
+[ext_resource type="Texture2D" uid="uid://dw5epcyw8cnun" path="res://assets/sprites/WillowSpiritFr2.png" id="13_tai5w"]
+[ext_resource type="Texture2D" uid="uid://31q5byshltkf" path="res://assets/sprites/WillowSpiritFr3.png" id="14_ydism"]
 
 [sub_resource type="Gradient" id="Gradient_13qdw"]
 offsets = PackedFloat32Array(0, 0.022727273, 1)
@@ -14,31 +26,84 @@ noise = SubResource("FastNoiseLite_b1lj4")
 color_ramp = SubResource("Gradient_13qdw")
 seamless = true
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x0bx7"]
-atlas = ExtResource("1_gontp")
-region = Rect2(96, 32, 32, 32)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_xrivr"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g21jq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2advk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3gms6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k3byp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_g21jq")
+}],
 "loop": 1,
 "name": &"bear",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_y0uco")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_da0fy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bfrk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_da0fy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y0uco")
+}],
 "loop": 1,
 "name": &"deer",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x0bx7")
+"texture": ExtResource("9_x8fsh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gxh7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_74ly7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gxh7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_x8fsh")
 }],
 "loop": 1,
 "name": &"pine",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_ty2xv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tai5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ydism")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tai5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ty2xv")
+}],
 "loop": 1,
 "name": &"vine",
 "speed": 5.0
@@ -59,6 +124,7 @@ texture = SubResource("NoiseTexture2D_xrivr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=852237924]
 sprite_frames = SubResource("SpriteFrames_xrivr")
 animation = &"bear"
+frame_progress = 0.06850422
 
 [node name="CollectBox" type="Area2D" parent="." unique_id=232358134]
 collision_layer = 0
