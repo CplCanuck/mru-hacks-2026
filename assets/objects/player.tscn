@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://bqhjiiceuhlyx"]
 
 [ext_resource type="Script" uid="uid://jok3quvn6ga6" path="res://assets/objects/player.gd" id="1_5pvfp"]
-[ext_resource type="Texture2D" uid="uid://dmreb8bu4bxac" path="res://icon.svg" id="1_ikdab"]
 [ext_resource type="Texture2D" uid="uid://c7rvyl8eukwj4" path="res://assets/sprites/stun_stars.png" id="2_nqkij"]
 [ext_resource type="Texture2D" uid="uid://bt7n554ph21w0" path="res://assets/sprites/bark-attack-1.png" id="3_6r1sy"]
+[ext_resource type="Texture2D" uid="uid://n05lreod60kc" path="res://assets/sprites/PlayerModel.png" id="3_nqkij"]
 [ext_resource type="Texture2D" uid="uid://dxadglr5jl0qk" path="res://assets/sprites/ProgressBar.png" id="4_6r1sy"]
 [ext_resource type="Script" uid="uid://dt36wd4ti631g" path="res://assets/objects/progress_bar.gd" id="4_jssbp"]
+[ext_resource type="Texture2D" uid="uid://cuqnj1f3ys8s5" path="res://assets/sprites/PlayerBark2.png" id="4_xvjlw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bi8p6"]
 radius = 70.0
@@ -60,6 +61,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_yalp0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nqkij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xvjlw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_nqkij"]
 atlas = ExtResource("3_6r1sy")
 region = Rect2(0, 0, 32, 32)
@@ -108,7 +123,7 @@ radius = 13.0
 height = 29.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1yt0f"]
-radius = 80.0
+radius = 60.0
 
 [sub_resource type="Animation" id="Animation_6r1sy"]
 length = 0.001
@@ -202,8 +217,9 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_1yt0f")
 autoplay = "default"
 
-[node name="Player Sprite" type="Sprite2D" parent="." unique_id=1374197492]
-texture = ExtResource("1_ikdab")
+[node name="Player Sprite" type="AnimatedSprite2D" parent="." unique_id=1746584883]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_yalp0")
 
 [node name="Attack Cooldown" type="Timer" parent="." unique_id=1614825696]
 one_shot = true
@@ -244,6 +260,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1777865291]
 collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1566410332]
 shape = SubResource("CircleShape2D_1yt0f")
@@ -254,3 +271,5 @@ libraries/ = SubResource("AnimationLibrary_xvjlw")
 [connection signal="timeout" from="Attack Cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="Invincibility Timer" to="." method="_on_invincibility_timer_timeout"]
 [connection signal="timeout" from="Stun Timer" to="." method="_on_stun_timer_timeout"]
+[connection signal="animation_finished" from="Attack Pivot/Bark Animation" to="." method="_on_bark_animation_animation_finished"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

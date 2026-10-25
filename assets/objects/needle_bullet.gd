@@ -13,9 +13,6 @@ func _ready():
 	#particles.angle_max = rad_to_deg(rotation)
 	#particles.rotation = rotation
 
-func _process(delta):
-	pass
-
 # moves object forword acording to the direction facing when spawned
 func _physics_process(delta):
 	var direction = Vector2.RIGHT.rotated(rotation)

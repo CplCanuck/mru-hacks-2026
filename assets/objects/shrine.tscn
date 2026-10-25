@@ -48,12 +48,12 @@ texture = ExtResource("3_505vx")
 [node name="Label" type="Label" parent="Interact Prompt" unique_id=2052283591]
 layout_mode = 0
 offset_left = -21.0
-offset_top = -165.0
+offset_top = -175.0
 offset_right = 21.0
-offset_bottom = -116.0
+offset_bottom = -108.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Press
-\"F\""
+theme_override_font_sizes/font_size = 48
+text = "F"
 horizontal_alignment = 1
 
 [node name="HurrayParticles" type="CPUParticles2D" parent="." unique_id=1597166170]

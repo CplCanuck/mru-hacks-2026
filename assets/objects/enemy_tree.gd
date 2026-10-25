@@ -160,7 +160,7 @@ func spawn_warning():
 func start_atk():
 	$Warning/VineAttack2.scale.y = 0
 	atk_cooldown = atk_cooldown_max
-	print("Starting enemy attack")
+	#print("Starting enemy attack")
 	if cur_type == tree_type.VINES_C:
 		spawn_warning()
 	else:
@@ -173,7 +173,7 @@ func spawn_atk():
 			$BulletSpawnPoint/Duration.start()
 			pass
 		tree_type.VINES_C:
-			print("Growing vines")
+			#print("Growing vines")
 			$Warning/VineAttack2.visible = true
 			var tween_scale_up = create_tween()
 			tween_scale_up.tween_property($Warning/VineAttack2, "scale", Vector2($Warning/VineAttack2.scale.x, 1), 0.15)
@@ -182,14 +182,14 @@ func spawn_atk():
 			tween_scale_down.tween_property($Warning/VineAttack2, "scale", Vector2($Warning/VineAttack2.scale.x, 0), 0.1)
 			await tween_scale_down.finished
 			end_atk()
-	print("Spawning enemy attack")
+	#print("Spawning enemy attack")
 	pass
 
 func end_atk():
-	print("Ending atk")
+	#print("Ending atk")
 	current_state = states.IDLE
 	if cur_type == tree_type.VINES_C:
-		print("Ending visable")
+		#print("Ending visable")
 		$Warning/VineAttack2.visible = false
 		$Warning.visible = false
 	pass
@@ -198,9 +198,10 @@ func _on_hit_range_body_entered(body:Node):
 	if body.is_in_group("Player"):
 		player_in_range = true
 		player = body
-		print("Player in range")
+		#print("Player in range")
 	else:
-		print("Enemy range deteched something entering thats not the player")
+		#print("Enemy range deteched something entering thats not the player")
+		pass
 	
 	pass
 
@@ -208,8 +209,9 @@ func _on_hit_range_body_exited(body):
 	if body.is_in_group("Player"):
 		player_in_range = false
 	else:
-		print("Enemy range deteched something exiting thats not the player")
-	print("Player out of range")
+		#print("Enemy range deteched something exiting thats not the player")
+		pass
+	#print("Player out of range")
 	pass
 
 
@@ -217,3 +219,9 @@ func _on_duration_timeout():
 	$BulletSpawnPoint/SingleTimer.stop()
 	$BulletSpawnPoint/BlastTimer.stop()
 	pass
+
+
+func _on_body_area_entered(_area: Area2D) -> void:
+	# This should really all be replaced with actually doing it instead of faking it
+	$AnimatedSprite2D.play("needle_r") #swap sprite
+	$AnimatedSprite2D.modulate = Color(1.0, 1.0, 1.0, 1.0)
