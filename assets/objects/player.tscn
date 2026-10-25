@@ -190,7 +190,6 @@ _data = {
 
 [node name="player" type="CharacterBody2D" unique_id=1106833625 groups=["Player"]]
 collision_layer = 9
-collision_mask = 0
 script = ExtResource("1_5pvfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=733966564]
