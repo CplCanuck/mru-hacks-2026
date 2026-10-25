@@ -90,8 +90,9 @@ tile_set = SubResource("TileSet_bi8p6")
 [node name="player" parent="." unique_id=1106833625 instance=ExtResource("3_sfrgt")]
 position = Vector2(303, 272)
 
-[node name="Shrine" parent="." unique_id=35282369 instance=ExtResource("5_etxf0")]
+[node name="Shrine" parent="." unique_id=35282369 node_paths=PackedStringArray("trees") instance=ExtResource("5_etxf0")]
 position = Vector2(550, 550)
+trees = [NodePath("../EnemyTree"), NodePath("../EnemyTree2"), NodePath("../EnemyTree3"), NodePath("../EnemyTree4")]
 
 [node name="Thorns" type="Node2D" parent="." unique_id=1597888591]
 z_index = 1
@@ -278,8 +279,9 @@ position = Vector2(-2755, -518)
 [node name="Thorns55" parent="Thorns/Rotation Point" unique_id=1816232453 instance=ExtResource("7_p5d64")]
 position = Vector2(-2840, -458)
 
-[node name="Shrine1" parent="." unique_id=1780998926 instance=ExtResource("5_etxf0")]
+[node name="Shrine1" parent="." unique_id=1780998926 node_paths=PackedStringArray("trees") instance=ExtResource("5_etxf0")]
 position = Vector2(-2600, 550)
+trees = [NodePath("../EnemyTree5"), NodePath("../EnemyTree6"), NodePath("../EnemyTree7")]
 
 [node name="Thorns1" type="Node2D" parent="." unique_id=1397386031]
 z_index = 1

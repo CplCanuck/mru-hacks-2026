@@ -37,7 +37,7 @@ func _process(_delta: float) -> void:
 func check_my_trees() -> bool:
 	# Check if trees are revitalized from trees var
 	for n in trees:
-		if n.current_state != 3: # 3 = states.REVITALIZED
+		if n.current_state != 2: # 3 = states.REVITALIZED
 			print("tree corrupted")
 			return false
 	print("no trees corrupted")
