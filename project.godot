@@ -18,11 +18,17 @@ config/icon="res://icon.svg"
 [autoload]
 
 MusicManager="*uid://dclwv5jnsb230"
+Backpack="*uid://cnutxthf62ay8"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[gui]
+
+theme/default_font_antialiasing=0
+theme/custom_font="uid://dhs4r5kufi1rd"
 
 [input]
 

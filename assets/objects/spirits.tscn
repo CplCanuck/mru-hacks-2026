@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b6msd4q1xiwba"]
+
+[ext_resource type="Texture2D" uid="uid://dmreb8bu4bxac" path="res://icon.svg" id="1_gontp"]
+[ext_resource type="Script" uid="uid://dxys3san0gdac" path="res://assets/objects/spirits.gd" id="1_x0bx7"]
+
+[sub_resource type="Gradient" id="Gradient_13qdw"]
+offsets = PackedFloat32Array(0, 0.022727273, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.20454545, 0.20454545, 0.20454545, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_b1lj4"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xrivr"]
+noise = SubResource("FastNoiseLite_b1lj4")
+color_ramp = SubResource("Gradient_13qdw")
+seamless = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0bx7"]
+atlas = ExtResource("1_gontp")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrivr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0bx7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_13qdw"]
+radius = 113.110565
+
+[node name="Spirits" type="CharacterBody2D" unique_id=624903803]
+script = ExtResource("1_x0bx7")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=119176956]
+visible = false
+texture = SubResource("NoiseTexture2D_xrivr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=852237924]
+sprite_frames = SubResource("SpriteFrames_xrivr")
+
+[node name="CollectBox" type="Area2D" parent="." unique_id=232358134]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectBox" unique_id=812306598]
+shape = SubResource("CircleShape2D_xrivr")
+
+[node name="PlayerNearBox" type="Area2D" parent="." unique_id=787326667]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerNearBox" unique_id=1305809284]
+shape = SubResource("CircleShape2D_13qdw")
+
+[connection signal="body_entered" from="PlayerNearBox" to="." method="_on_player_near_box_body_entered"]
+[connection signal="body_exited" from="PlayerNearBox" to="." method="_on_player_near_box_body_exited"]
