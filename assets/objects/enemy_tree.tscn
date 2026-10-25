@@ -461,6 +461,7 @@ animation = &"attacking"
 autoplay = "needle_c"
 
 [node name="Label" type="Label" parent="." unique_id=1953349695]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "7"
