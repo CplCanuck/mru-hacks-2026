@@ -25,7 +25,12 @@ animations = [{
 "texture": SubResource("AtlasTexture_x0bx7")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"pine",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"vine",
 "speed": 5.0
 }]
 
@@ -43,6 +48,7 @@ texture = SubResource("NoiseTexture2D_xrivr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=852237924]
 sprite_frames = SubResource("SpriteFrames_xrivr")
+animation = &"vine"
 
 [node name="CollectBox" type="Area2D" parent="." unique_id=232358134]
 collision_layer = 0
@@ -56,5 +62,6 @@ shape = SubResource("CircleShape2D_xrivr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerNearBox" unique_id=1305809284]
 shape = SubResource("CircleShape2D_13qdw")
 
+[connection signal="body_entered" from="CollectBox" to="." method="_on_collect_box_body_entered"]
 [connection signal="body_entered" from="PlayerNearBox" to="." method="_on_player_near_box_body_entered"]
 [connection signal="body_exited" from="PlayerNearBox" to="." method="_on_player_near_box_body_exited"]

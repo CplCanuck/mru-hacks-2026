@@ -60,3 +60,11 @@ func _on_player_near_box_body_exited(body):
 		print("Player out of range")
 	else:
 		print("Spirit range deteched something exiting thats not the player")
+
+
+func _on_collect_box_body_entered(body):
+	if soul_type == type.PINE:
+		Backpack.add_pine_soul()
+	if soul_type == type.VINE:
+		Backpack.add_vine_soul()
+	queue_free()
