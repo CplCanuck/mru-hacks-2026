@@ -219,3 +219,9 @@ func _on_duration_timeout():
 	$BulletSpawnPoint/SingleTimer.stop()
 	$BulletSpawnPoint/BlastTimer.stop()
 	pass
+
+
+func _on_body_area_entered(_area: Area2D) -> void:
+	# This should really all be replaced with actually doing it instead of faking it
+	$AnimatedSprite2D.play("needle_r") #swap sprite
+	$AnimatedSprite2D.modulate = Color(1.0, 1.0, 1.0, 1.0)

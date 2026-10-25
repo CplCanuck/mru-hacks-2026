@@ -45,24 +45,6 @@ tile_set = SubResource("TileSet_bi8p6")
 [node name="player" parent="." unique_id=1106833625 instance=ExtResource("3_sfrgt")]
 position = Vector2(303, 272)
 
-[node name="Win Room Items" type="Node2D" parent="." unique_id=1043747026]
-
-[node name="Label" type="Label" parent="Win Room Items" unique_id=334183200]
-offset_top = 3840.0
-offset_right = 1088.0
-offset_bottom = 4047.0
-theme_override_font_sizes/font_size = 48
-text = "The forest has been revitalized and
-your mother has been saved!
-You win!"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="ForestMotherAwake" type="Sprite2D" parent="Win Room Items" unique_id=722706452]
-position = Vector2(550, 3520)
-scale = Vector2(4, 4)
-texture = ExtResource("4_p5d64")
-
 [node name="Shrine" parent="." unique_id=35282369 node_paths=PackedStringArray("trees") instance=ExtResource("5_etxf0")]
 position = Vector2(550, 550)
 trees = [NodePath("../EnemyTree")]
@@ -194,6 +176,40 @@ position = Vector2(570, -560)
 
 [node name="EnemyTree" parent="." unique_id=1938661581 instance=ExtResource("8_6rsl6")]
 position = Vector2(661, -23)
+
+[node name="Win Room Label" type="Label" parent="." unique_id=334183200]
+offset_top = 3840.0
+offset_right = 1088.0
+offset_bottom = 4047.0
+theme_override_font_sizes/font_size = 48
+text = "The forest has been revitalized and
+your mother has been saved!
+You win!"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ForestMotherAwake" type="Sprite2D" parent="." unique_id=722706452]
+position = Vector2(550, 3520)
+scale = Vector2(4, 4)
+texture = ExtResource("4_p5d64")
+
+[node name="EnemyTree2" parent="." unique_id=868746619 instance=ExtResource("8_6rsl6")]
+position = Vector2(1191, 353)
+
+[node name="EnemyTree3" parent="." unique_id=2124526008 instance=ExtResource("8_6rsl6")]
+position = Vector2(965, 1075)
+
+[node name="EnemyTree4" parent="." unique_id=1680804718 instance=ExtResource("8_6rsl6")]
+position = Vector2(-91, 965)
+
+[node name="EnemyTree5" parent="." unique_id=1466326557 instance=ExtResource("8_6rsl6")]
+position = Vector2(-2903, 289)
+
+[node name="EnemyTree6" parent="." unique_id=2005814382 instance=ExtResource("8_6rsl6")]
+position = Vector2(-3081, 663)
+
+[node name="EnemyTree7" parent="." unique_id=1650975366 instance=ExtResource("8_6rsl6")]
+position = Vector2(-2273, 948)
 
 [connection signal="_on_shrine_success" from="Shrine" to="Thorns1" method="_on_shrine_success"]
 [connection signal="_on_shrine_success" from="Shrine1" to="Thorns" method="_on_shrine_success"]
