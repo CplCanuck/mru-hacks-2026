@@ -56,6 +56,7 @@ text = "The forest has been revitalized and
 your mother has been saved!
 You win!"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ForestMotherAwake" type="Sprite2D" parent="Win Room Items" unique_id=722706452]
 position = Vector2(550, 3520)

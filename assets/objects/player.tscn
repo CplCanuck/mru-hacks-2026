@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://n05lreod60kc" path="res://assets/sprites/PlayerModel.png" id="3_nqkij"]
 [ext_resource type="Texture2D" uid="uid://dxadglr5jl0qk" path="res://assets/sprites/ProgressBar.png" id="4_6r1sy"]
 [ext_resource type="Script" uid="uid://dt36wd4ti631g" path="res://assets/objects/progress_bar.gd" id="4_jssbp"]
-[ext_resource type="Texture2D" uid="uid://dyhmd5jvjb53h" path="res://assets/sprites/PlayerBark.png" id="4_xvjlw"]
+[ext_resource type="Texture2D" uid="uid://cuqnj1f3ys8s5" path="res://assets/sprites/PlayerBark2.png" id="4_xvjlw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bi8p6"]
 radius = 70.0
