@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bhch3eqhm8mf3"
+path="res://.godot/imported/final layer.wav-e05b54afcc02b1d501d9f4946a550f6c.sample"
+
+[deps]
+
+source_file="res://assets/music/music_assets/music_layers/final layer.wav"
+dest_files=["res://.godot/imported/final layer.wav-e05b54afcc02b1d501d9f4946a550f6c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
