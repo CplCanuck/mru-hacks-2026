@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://fq7sqe38xi5c" path="res://assets/objects/shrine.gd" id="1_v7yc1"]
 [ext_resource type="Texture2D" uid="uid://vwnb4pxhncoe" path="res://assets/sprites/interact-circle.png" id="3_505vx"]
 [ext_resource type="Texture2D" uid="uid://c7ifwv6s0lity" path="res://assets/sprites/particle-square.png" id="4_stjl5"]
+[ext_resource type="AudioStream" uid="uid://b6k4o0qyaf2e1" path="res://assets/sfx/COMPLETE quest - deer (2).wav" id="5_fc3o2"]
+[ext_resource type="AudioStream" uid="uid://ckjuydpk3t8nk" path="res://assets/sfx/COMPLETE quest - bear (2).wav" id="6_xj0qq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bi8p6"]
 radius = 50.0
@@ -74,6 +76,12 @@ scale_amount_min = 1.5
 scale_amount_max = 2.0
 color_ramp = SubResource("Gradient_fc3o2")
 color_initial_ramp = SubResource("Gradient_g8u1f")
+
+[node name="DeerSFX" type="AudioStreamPlayer2D" parent="." unique_id=1728423245]
+stream = ExtResource("5_fc3o2")
+
+[node name="BearSFX" type="AudioStreamPlayer2D" parent="." unique_id=1535939623]
+stream = ExtResource("6_xj0qq")
 
 [connection signal="body_entered" from="Interact Area" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="Interact Area" to="." method="_on_interact_area_body_exited"]

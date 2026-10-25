@@ -26,6 +26,11 @@ func _process(_delta: float) -> void:
 			interact_is_active = false
 			interact_prompt.visible = false
 			print("Shrine Success!")
+			if name == "Shrine":
+				$DeerSFX.play()
+			else:
+				$BearSFX.play()
+				
 		else:
 			print("Trees still need revitalizing!")
 
